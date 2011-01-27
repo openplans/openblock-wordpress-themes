@@ -15,32 +15,16 @@ class Woo_News extends WP_Widget {
 	$size = $instance['size']; if (!$size && size <> 0) $size = 70;
 	$align = $instance['align']; if (!$align) $align = 'alignright';
 	?>
-		<?php echo $before_widget; ?>
 
-				<h3><?php echo $title; ?></h3>
-                <a class="rss" href="<?php if ( get_option('woo_feed_url') <> "" ) { echo get_option('woo_feed_url'); } else { echo bloginfo('url') . "/?feed=rss2"; } ?>" title="<?php _e('Subscribe to our RSS feed', 'woothemes'); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/ico-rss-big.png" alt="RSS"/></a>
-                
-				
-				<div>
-					<?php
-						 query_posts('posts_per_page=' . $number);
-						 if ( have_posts() ) : while ( have_posts() ) : the_post();
-					?>
-					    <div class="item">
-                        	<?php if ( $size <> 0 ) woo_image('width='.$size.'&height='.$size.'&class=thumbnail '.$align); ?> 
-                        	<a class="title" href="<?php echo get_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>"><?php echo get_the_title($post->ID); ?></a>
-                            <p class="post-meta">
-                                <span class="small"><?php _e('by', 'woothemes') ?></span> <span class="post-author"><?php the_author_posts_link(); ?></span>
-                                <span class="small"><?php _e('on', 'woothemes') ?></span> <span class="post-date"><?php the_time(get_option('date_format')); ?></span>
-                                <span class="small"><?php _e('in', 'woothemes') ?></span> <span class="post-category"><?php the_category(', ') ?></span>
-                            </p>
-                            <p><?php echo woo_text_trim( get_the_excerpt(), 25); ?></p>
-                        </div>
-					    
-					<?php endwhile; endif; ?>
-				</div>
-			
-		<?php echo $after_widget; ?>   
+               <?php echo $before_widget; ?>
+
+                <?php
+                 require_once (ABSPATH . WPINC . '/rss.php');
+                 get_rss('http://blog.openblockproject.org/rss');
+                 ?>
+
+               <?php echo $after_widget; ?>
+   
    <?php
    }
 
