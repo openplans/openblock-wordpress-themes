@@ -1,22 +1,23 @@
 <?php
 	global $woo_options;
 	query_posts('post_type=slide&order=ASC&orderby=date');
-	if (have_posts()) : $count = 0; 
+	if (have_posts()) : $count = 0;
 ?>
 
 
 <div id="featured">
     <div id="loopedSlider">
         
+       <?php if (($wp_query->post_count) > 1) : ?>
         <ul class="nav-buttons">
                 <li id="p"><a href="#" class="previous"><img src="<?php bloginfo('template_directory'); ?>/images/slider-arrow-left.png" alt="&lt;" /></a></li>
                 <li id="n"><a href="#" class="next"><img src="<?php bloginfo('template_directory'); ?>/images/slider-arrow-right.png" alt="&gt;" /></a></li>
         </ul>    
-
+       <?php endif; ?>
          <div class="container" <?php if ( $woo_options['woo_slider_height'] ) echo 'style="height:'. $woo_options['woo_slider_height'] .'px;"'; ?>>  
              <div class="slides">  
            
-	        <?php while (have_posts()) : the_post(); $count++; ?>		        					
+	        <?php while (have_posts()) : the_post(); $count++ ; ?>		        					
               
 			    <div id="slide-<?php echo $count; ?>" class="slide">                
 
