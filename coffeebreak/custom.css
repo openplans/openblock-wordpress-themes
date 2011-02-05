@@ -11,3 +11,21 @@ your liking.
 
 */
 
+
+#header {
+  height: 80px;
+  padding: 10px 0;
+}
+
+#nav {
+  margin-top: 30px;
+  margin-right: 315px;
+}
+
+#loopedSlider {
+  padding: 40px 0 20px;
+}
+
+#main h2 {
+  padding-top: 10px;
+}
