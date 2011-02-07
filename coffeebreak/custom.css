@@ -74,3 +74,24 @@ your liking.
 #footer {
   text-shadow: 1px 1px 0 #FFFFFF;
 }
+
+.selfclear {
+  display: block;
+}
+
+label.ss-q-title {
+  float: left;
+  line-height: 150%;
+  text-align: right;
+  width: 180px;
+}
+
+input.ss-q-short, textarea.ss-q-long {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 250px;
+}
+
+textarea.ss-q-long {
+  height: 80px;
+}

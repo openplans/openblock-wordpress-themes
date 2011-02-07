@@ -3,6 +3,7 @@
 // =============================== Widget Functions ======================================
 
 include( TEMPLATEPATH . '/includes/widget-woo-openblock-news.php' );
+include( TEMPLATEPATH . '/includes/widget-openblock-signup-form.php' );
 
 // Input Option: Listing Link Categories
 function DisplayCats($name,$select)
