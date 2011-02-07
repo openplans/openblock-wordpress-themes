@@ -21,7 +21,7 @@ class Woo_OpenBlockNews extends WP_Widget {
                <?php echo $before_widget; ?>
 
                <h3><a href="http://blog.openblockproject.org"><?php echo $title; ?></a></h3>
-               <a class="rss" href="<?php echo $feedurl ?>" title="Subscribe to our RSS feed"><img src="/newtest/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
+               <a class="rss" href="<?php echo $feedurl ?>" title="Subscribe to our RSS feed"><img src="/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
 
                 <?php
                  require_once (ABSPATH . WPINC . '/rss.php'); $rss = fetch_rss($feedurl);

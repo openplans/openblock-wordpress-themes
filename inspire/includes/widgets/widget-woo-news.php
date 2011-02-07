@@ -21,7 +21,7 @@ class Woo_News extends WP_Widget {
                <?php echo $before_widget; ?>
 
                <h3>Latest news</h3>
-               <a class="rss" href="<?php echo $feedurl ?>" title="Subscribe to our RSS feed"><img src="/newtest/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
+               <a class="rss" href="<?php echo $feedurl ?>" title="Subscribe to our RSS feed"><img src="/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
 
                 <?php
                  require_once (ABSPATH . WPINC . '/rss.php'); $rss = fetch_rss($feedurl);
