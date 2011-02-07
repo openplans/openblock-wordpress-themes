@@ -37,6 +37,7 @@
                     <div class="hr"></div>
         
                 <?php endwhile; endif; ?>
+                <?php woo_sidebar('homepage'); ?>
 	            </div><!-- /#mini-features -->
 	            <?php } ?>
                     

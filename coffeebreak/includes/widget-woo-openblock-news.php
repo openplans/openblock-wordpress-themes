@@ -21,7 +21,7 @@ class Woo_OpenBlockNews extends WP_Widget {
                <?php echo $before_widget; ?>
 
                <h3><a href="http://blog.openblockproject.org"><?php echo $title; ?></a></h3>
-               <a class="rss" href="$feedurl" title="Subscribe to our RSS feed"><img src="/newtest/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
+               <a class="rss" href="<?php echo $feedurl ?>" title="Subscribe to our RSS feed"><img src="/newtest/wp-content/themes/inspire/images/ico-rss-big.png" alt="RSS"/></a>
 
                 <?php
                  require_once (ABSPATH . WPINC . '/rss.php'); $rss = fetch_rss($feedurl);
@@ -31,19 +31,19 @@ class Woo_OpenBlockNews extends WP_Widget {
 
                      $descr = strip_tags($item['description']);
                      $words = preg_split('/\s+/', $descr);
-                     $words = array_slice($words, 0, 25);
+                     $words = array_slice($words, 0, 35);
                      $descr = join(' ', $words);
+                     $pubdate = date('F j, Y', strtotime($item['pubdate']));
 
                      echo "<div class='item'>\n";
+                     echo " <p class='post-meta'>\n";
+                     echo "  <span class='post-date'>$pubdate</span>";
+                     echo " </p>\n";
                      echo "<a class='title' href='$item[link]'>";
                      echo htmlentities($item['title']);
                      echo "</a>\n";
-                     echo " <p class='post-meta'>\n";
-                     echo "  <span class='post-date'>$item[pubdate]</span>";
-                     echo " </p>\n";
                      echo " <p class='descr'>\n";
                      echo $descr;
-                     
                      echo "&nbsp;... \n</p> </div>\n";
 
                  }};

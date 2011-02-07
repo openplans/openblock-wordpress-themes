@@ -29,3 +29,48 @@ your liking.
 #main h2 {
   padding-top: 10px;
 }
+
+#main h3 {
+  font-size: 24px;
+}
+
+/* Custom blog formatting on homepage */
+
+.widget_woo_openblocknews {
+  position: relative;
+}
+
+.widget_woo_openblocknews .rss {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.widget_woo_openblocknews h3 {
+  margin-bottom: 15px;
+}
+
+.widget_woo_openblocknews .item {
+  margin-bottom: 20px;
+}
+
+.widget_woo_openblocknews .item .post-meta {
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 12px !important;  
+}
+
+.widget_woo_openblocknews .item .title {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.widget_woo_openblocknews .item .descr {
+
+}
+
+#footer {
+  text-shadow: 1px 1px 0 #FFFFFF;
+}
