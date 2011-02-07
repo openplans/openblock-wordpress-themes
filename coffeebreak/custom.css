@@ -80,10 +80,10 @@ your liking.
 }
 
 label.ss-q-title {
-  float: left;
   line-height: 150%;
-  text-align: right;
-  width: 180px;
+  text-align: left;
+/*  float: left;
+  width: 180px; */
 }
 
 input.ss-q-short, textarea.ss-q-long {
@@ -95,3 +95,74 @@ input.ss-q-short, textarea.ss-q-long {
 textarea.ss-q-long {
   height: 80px;
 }
+
+
+/* Twitter widget tweaks */
+
+#sidebar .widget_woo_twitter, #sidebar .widget_woo_twitter a {
+  font-size: 12px;
+}
+
+/* News widget */
+
+.widget_woo_openblocknews .item a.title {
+   font-weight: bold;
+}
+
+.widget_woo_openblocknews .item {
+   margin-bottom: 10px;
+}
+
+.widget_woo_openblocknews .item p {
+   padding: 0;
+}
+
+
+#footer-logos .meta-sep {
+    display: none;
+    }
+
+#footer-logos a {
+ margin: 0 10px 0 0;
+/*    float: left; 
+    height: 45px;
+   text-indent: -9999px; 
+    text-align: left;
+*/
+}
+
+/* #footer-logos a.knight {
+    width: 54px; height: 54px; */
+/*    background: url(http://openblockproject.org/img/logo-knight.png) center center no-repeat scroll; */
+/*        background: url(http://openblockproject.org/wp-content/uploads/2011/02/knightfoundation-logo-transparent-black-54x54.png) center center no-repeat scroll;
+    margin: 0 10px 0 0px;
+    }
+*/
+
+
+/* #footer-logos a.openplans {
+    width: 166px;
+    background: url(http://openblockproject.org/img/logo-openplans.png) center center no-repeat scroll; 
+    width: 120px;
+    background: url(http://openblockproject.org/wp-content/uploads/2011/02/OpenPlans-logo-120x32-transparent.png) center center no-repeat scroll;
+    margin: 0 10px 0 0;
+    }
+*/
+
+/* #footer-logos a.boston-globe {
+    width: 223px;
+    background: url(http://openblockproject.org/img/logo-boston-globe.png) center center no-repeat scroll; 
+    width: 180px;
+    background: url(http://openblockproject.org/wp-content/uploads/2011/02/bostonglobe-180x28.png) center center no-repeat scroll;
+    margin: 0 10px 0 0;
+    }
+*/
+
+/* #footer-logos a.tribune {
+    width: 136px;
+    background: url(http://openblockproject.org/img/logo-tribune.png) center center no-repeat scroll; 
+    width: 126px;
+    background: url(http://openblockproject.org/wp-content/uploads/2011/02/columbia_tribune-126x36-transparent2.png) center center no-repeat scroll;
+    margin: 0;
+    }
+*/
