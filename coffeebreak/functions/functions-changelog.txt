@@ -1,7 +1,631 @@
 *** WooThemes Framework Changelog **
 
+2011.12.15 - version 5.0.2
+ * admin-functions.php - Revise styling of custom login logo for WordPress 3.3.
+ * admin-style.css - Options panel left menu positioning fix. Tweak padding on left menu items.
+ * admin-shortcodes.css - fixed typo topkeft
+
+2011.12.13 - version 5.0.1
+ * admin-style.css - Resolve styling conflict between new theme options interface and the Sidebar Manager.
+ * admin-interface.php - Removed $value['icon'] call from subheadings.
+ * admin-seo.php, admin-functions.php - Changed the default meta value to 'follow' instead of 'nofollow'.
+
+2011.12.07 - version 5.0.0
+ * admin-functions.php - Replaced get_the_content() with $post->post_content in woo_meta(), to avoid additional injected logic being displayed. Wrap it in strip_tags() and strip_shortcodes(). Refined woo_get_fw_version() with better error handling. Added urlencode() around the search query in woo_pagination when using the default "raw" search permastruct. Added variants to the "Rokkit" Google WebFont.
+ * admin-interface.php - Refined woothemes_version_checker() with better error handling. Adjusted WooThemes Machine to build a multi-dimensional array of the menu items for the interface navigation. Changed version number of interface JavaScript to 5.0.0 to force refresh to latest version of the file. First version of the "timestamp" field type.
+ * admin-shortcodes.php - Added [stumbleupon] shortcode. Added optional unique ID parameter to tabber shortcode.
+ * admin-custom.php - Added first version of the "timestamp" custom field type.
+ * /css/woo-custom-fields.css - Added styling for the "timestamp" field type.
+ * /js/shortcodes.js - Added "tab auto-selection via hash" logic to tabber shortcode JavaScript. Uses #tab-id on the URL to automatically select the specified tab (unique ID required on tabber).
+ * /js/shortcode-generator/shortcodes/stumbleupon.js - Added generator for the [stumbleupon] shortcode.
+ * /js/shortcode-generator/shortcodes/tab.js - Added "unique ID" parameter to tabber shortcode generator.
+ * /js/shortcode-generator/editor_plugin.js - Added [stumbleupon] shortcode to the shortcodes menu.
+ * /js/woo-admin-interface.js - Added JavaScript logic to handle the sub-menus, as well as fly-out menus for closed menus with sub-menu items.
+ * admin-style.css - Added basic styling for hiding fly-out menus when not applicable, as well as positioning the fly-out menus.
+ * thumb.php - latest version of TimThumb 2.8.4
+ * admin-framework-settings.php - Updated "Admin Bar" text to read "WordPress Toolbar".
+
+2011.11.25 - version 4.9.2
+ * admin-custom.php - Resolved "undefined variable" issue on $current_value when attempting to remove custom meta.
+
+2011.11.24 - version 4.9.1
+ * admin-functions.php - fixed bug with getting youtube images
+
+2011.11.22 - version 4.9.0
+ * admin-interface.php - Removed legacy String Builder and AJAX uploader JavaScripts.
+ * admin-functions.php - Integrate PressTrends logic. Remove base64 function calls. Added option to woo_pagination() to use a raw search URL permastruct, as well as a filter for the default arguments.
+ * admin-framework-settings.php - Add PressTrends menus if PressTrends is in use.
+ * admin-medialibrary-uploader.php - Refine "Use this Image" button gettext logic.
+ * admin-custom-nav.php - Code adjustments after "Theme Check" audit.
+ * admin-express-functions.php - Add "woothemes" textdomain to translatable strings.
+ * admin-express-functions-deprecated.php - Add "woothemes" textdomain to translatable strings.
+ * admin-style.css - Added styling for "PressTrends" Framework Settings menu icon.
+ * /js/nicEdit.js - Fixed line-endings to all be in the same format (not either DOS or UNIX).
+ * /images/option-icon-presstrends.png - Added option icon for "PressTrends" Framework Settings menu.
+
+2011.11.18 - version 4.8.5
+ * thumb.php - TimThumb - added latest version 2.8.2
+
+2011.11.09 - version 4.8.4
+ * admin-functions.php - woo_image() added new variable $noheight = Don't output the height on img tag (for responsive designs)
+ * admin-functions.php - added latest Google Fonts
+ * admin-functions.php - fixed notice errors in woo_get_video_image()
+
+2011.11.02 - version 4.8.3
+ * admin-interface.php - Revert regular expression used to generate the admin interface menu in woothemes_machine().
+
+2011.11.01 - version 4.8.2
+ * admin-functions.php - woo_image/vt_image fixed bug with no height being set in woo_image and image was re-created on each load
+ * admin-functions.php - added new google fonts.
+
+2011.10.27 - version 4.8.1
+ * admin-functions.php - woo_image/vt_image improved error handling when using WP post thumbnail
+
+2011.10.25 - version 4.8.0
+ * admin-interface.php - Added logic for WooFramework update checker and notification. Code optimisation and maintenance.
+ * admin-functions.php - woo_breadcrumbs() shouldn't check for parent entries of the page is '/'. Add function to check for WooFramework updates. Added "theme" screen icon to "Buy Themes" screen.
+ * admin-framework-settings.php - Add option to enable WooFramework update notifications.
+ * admin-custom.php - Resolve "undefined index" errors when handling metabox field data. Add field-specific CSS classes to each table row in the meta box table. Remove legacy upload tracking.
+ * admin-medialibrary-uploader.php - Code maintenance. Added support for custom titles on "image" fields in the post meta box. Added support for hiding the URL input field for fields of type "upload_min".
+ * admin-shortcode-generator.php - Make sure the shortcode generator JavaScript is loaded only on the post/page "Add" and "Edit" screens.
+ * admin-style.css - Tweaked CSS of .info on "Buy Themes" screen to add margin-top of 10px. Added styling to reposition the "Upload" button for fields of type "upload_min".
+ * /js/woo-medialibrary-uploader.js - Added support for custom titles on "image" fields in the post meta box.
+ * /js/woo-custom-fields.js - ADDED - Moved JavaScript from admin-custom.php into it's own file and streamlined.
+ * /js/woo-admin-interface.js - ADDED - Moved JavaScript from admin-interface.php into it's own file and streamlined.
+ * /css/woo-custom-fields.css - ADDED - Moved CSS from admin-custom.php into it's own file and streamlined.
+
+2011.10.20 - version 4.7.2
+ * admin-functions-php - added wmode="transparent" to iframe in woo_embed()
+ * admin-setup.php - fixed text-title bug
+
+2011.10.11 - version 4.7.1
+ * admin-shortcodes.php - Adjusted Google +1 Shortcode to use updated attribute keys for HTML5 valid syntax. Added "annotation" attribute to replace "count".
+ * js/shortcode-generator/shortcodes/google_plusone.js - Replaced "count" attribute with "annotation" per Google's update to the +1 button.
+ * admin-style.css - Updated styling and fonts.
+ * admin-functions.php - If the user has set a "posts page", load the "Blog" page template for that page, if the template file exists. Fixed google font: open sans condensed.
+ * admin-medialibrary-uploader.php - Added contextually accurate "insert" button labels, as well as modified "Gallery" tab to "Previously Uploaded" when on an "Image" custom field.
+ * /js/woo-medialibrary-uploader.js - Pass is_woothemes and title parameters through to the uploader popup.
+
+2011.10.10 - version 4.7.0
+ * /js/woo-typography-preview.js - Typography preview engine.
+ * admin-interface.php - Register and enqueue typography preview engine JavaScript on "Theme Options" screen.
+ * admin-style.css - Style the typography preview engine.
+ * /images/ico-preview.png, 
+   /images/ico-refresh.png - Added icons for use in the typography preview engine.
+ * admin-functions.php - Add urldecode() to search link in woo_pagination(), if the "nice search" permastruct is in use. Fixed spelling errors in certain Google Fonts to prevent errors when loading.
+ * admin-shortcodes.php - Added auto-adjusting width and height values to the fbshare shortcode (set width to auto and height to fit in appropriate cases, when "showfaces" is off), and fixed "undefined index" error on fblike shortcode when no $post variable is available and no custom URL is set. Make sure shortcodes.js only loads when required.
+
+2011.10.06 - version 4.6.3
+ * admin-interface.php - Make sure the theme version checker receives the correct theme version number when a child theme is in use.
+ * admin-functions.php - added is_ssl to google font loader. Added more google fonts.
+ * admin-shortcodes.php - added is_ssl to google font loader
+
+2011.10.05 - version 4.6.2
+ * admin-sbm.php - Replaced call to is_attach() function with call to is_attachment().
+ * admin-shortcodes.php - Added optional "title" attribute to the icon link shortcode.
+ * /js/shortcode-generator/shortcodes/ilink.js - Added generator field for optional "title" attribute in the icon link shortcode generator.
+ * admin-functions.php - Pass $args array through to "woo_breadcrumbs_trail" filter as a second parameter (filter now accepts $trail and $args).
+ * admin-backup.php - Added is_array() checks to each $options call in the backup manager, to prevent "foreach" warning messages.
+ * admin-style.css - Adjusted CSS to display the theme update notifier update notice.
+ * admin-setup.php - Remove rewrite rules flush in admin_head on each load (now only flush rewrite rules on theme activation and on theme options save).
+ * admin-interface.php - Added transient (set for 24 hours) to theme version checker, and converted theme update notifier to a WordPress admin notice at the top of the "Theme Options" screen. Flush rewrite rules when saving the "theme Options".
+
+2011.09.30 - version 4.6.1
+ * admin-functions.php - added new Google webfonts
+
+2011.09.22 - version 4.6.0
+ * admin-functions.php - Modified post type archives support and fixed "double 'posts' page link" issue in woo_breadcrumbs(). Make "less than a minute ago" and "about a minute ago" strings translatable in Twitter widget JavaScript.
+ * admin-interface.php - Move save logic for theme options into a separate function and add support for non-JavaScript saving of theme options, framework settings and SEO settings.
+ * admin-framework-settings.php, 
+   admin-seo.php - Make sure "woo_save" field is present, as well as form method is set to "post".
+ * admin-shortcodes.php - Added support for "language" parameter to Google +1 shortcode and it's generator. Adjusted the shortcode to use HTML5 valid syntax, instead of <g:plusone> tags.
+ * /js/shortcode-generator/shortcodes/google_plusone.js - Added language selector to generator.
+
+2011.09.16 - version 4.5.4
+ * admin-interface.php - Adjust theme update notification links to point to the new theme "Downloads" page in the WooThemes Account Dashboard.
+
+2011.09.07 - version 4.5.3
+ * admin-interface.php - Fixed bug in theme update notification checker, to retrieve only the latest version number.
+
+2011.09.05 - version 4.5.2
+ * admin-shortcodes.php - Fixed "only first thumbnail displays in related posts shortcode" issue.
+
+2011.08.30 - version 4.5.1
+ * admin-backup.php - Make sure the export tool notice displays only on the "Backup Settings" screen.
+
+2011.08.26 - version 4.5.0
+ * admin-backup.php - Revamped theme options backup functionality.
+ * admin-shortcodes.php - Make sure Digg and TweetMeme shortcodes use the current $post permalink if no custom URL is specified.
+ * admin-functions.php - Added woo_get_posts_by_taxonomy() function, for retrieving posts by taxonomy.
+ * admin-interface.php - Fixed nonce check on WooSEO reset logic.
+ * admin-framework-settings.php - Removed legacy backup script.
+
+2011.08.25 - version 4.4.4
+ * admin-functions.php - Twitter "time ago" strings are now translatable on the "woothemes" textdomain. Added argument to woo_breadcrumbs() to display the path to the posts page, if a posts page and static front page are set.
+ * admin-medialibrary-uploader.php - Added "woothemes" textdomain to several translatable strings.
+ * admin-sbm.php - Fixed undefined index error when searching through custom taxonomy sidebars.
+
+2011.08.19 - version 4.4.3
+ * admin-sbm.php - Adjusted Sidebar Manager dependencies logic to resolve dependencies issues, notified after V4.3.7.
+
+2011.08.18 - version 4.4.2 
+ * thumb.php - version 2.8 and fixed cache folder to use the old one in theme folder.
+
+2011.08.18 - version 4.4.1
+ * admin-functions.php - adds timthumb update function
+ * admin-interface.php - adds timthumb update function menu item and admin notice
+ 
+2011.08.15 - version 4.4.0
+ * thumb.php - added TimThumb to WooFramework
+ * admin-functions.php - change woo_image() to use thumb.php in functions folder instead
+ * admin-custom.php - fixed thumb.php path
+
+2011.08.12 - version 4.3.8
+ * admin-setup.php - Added woo_theme_activate action and moved theme options redirect to an action on woo_theme_activate. Added flush_rewrite_rules to admin_head on theme activation.
+ * admin-interface.php - Made "Options Saved", "Options Reset" and text in the nav bar (theme docs, changelog, etc) translatable.
+
+2011.08.11 - version 4.3.7
+ * admin-sbm.php - Reverted to V4.3.1 of the Sidebar Manager and made additional fixes from there, regarding sidebar dependencies.
+ * admin-shortcodes.php - Added "use_post_url" attribute to Twitter shortcode, to enable automatic retrieval of post URLs when used with archive screens.
+ * /js/shortcode-generator/shortcodes/twitter.js - Added "use_post_url" option to Shortcode Generator for the Twitter shortcode.
+
+2011.08.08 - version 4.3.6
+ * admin-functions.php - Added new Google Fonts
+ * admin-sbm.php - Resolved sidebar dependencies logic issue with custom post types, post type archives and custom taxonomies.
+
+2011.08.03 - version 4.3.5
+ * admin-functions.php - Updated regular expression used in woo_embed to get/set width and height of embedded video.
+
+2011.08.01 - version 4.3.4
+ * admin-interface.php - Optimised and resolved preg_replace() bug in the display of certain theme options tabs.
+
+2011.07.31 - version 4.3.3
+ * admin-interface.php - fixed preg_replace bug
+
+2011.07.31 - version 4.3.2
+ * admin-functions.php, 
+   admin-interface.php = Replaced ereg() with preg_match() and ereg_replace() with preg_replace() to fix deprecated notice in PHP 5.3.0.
+
+2011.07.28 - version 4.3.1
+ * admin-sbm.php - Added support for post type archive custom sidebars.
+ * admin-framework-settings.php - Split "Framework Settings" into "Theme Settings" and "Admin Settings", and added theme option to move tracking code from footer to header.
+ * admin-functions.php - Added logic to move tracking code from footer to header.
+
+2011.07.27 - version 4.3.0
+ * admin-shortcodes.php - Added Twitter Follow Button shortcode. Added Google Plus support to Social Profile Icon shortcode.
+ * js/shortcode-generator/shortcodes/twitter_follow.js - Shortcode generator screen for Twitter Follow Button shortcode.
+ * js/shortcode-generator/shortcodes/social_icon.js - Added Google Plus support to Social Profile Icon generator.
+ * js/shortcode-generator/editor_plugin.js - Added Twitter Follow Button link to shortcode generator popup.
+
+2011.07.25 - version 4.2.6
+ * admin-functions.php - fixed thumbnail in RSS to be shown when also when rss excerpt is selected. Fixed woo_image to output full image link with $link arg
+
+2011.07.24 - version 4.2.5
+ * images/ajax-loader.gif - added missing image for tumblog
+ * admin-functions.php - added new google fonts
+
+2011.07.23 - version 4.2.4
+ * admin-setup.php - added stripslashes to Custom CSS output
+
+2011.07.21 - version 4.2.3
+ * admin-functions.php - SEO: Added custom setting for Post Types and Taxonomy Archive pages for setting robots to "noindex"
+ * admin-seo.php - SEO: Added custom setting for Post Types and Taxonomy Archive pages for setting robots to "noindex"
+ * admin-custom.php - Strip slashes from label, description and default value before displaying the post meta fields.
+
+2011.07.19 - version 4.2.2
+ * admin-interface.php - Integrated options sanitization functions from security audit.
+
+2011.07.19 - version 4.2.1
+ * admin-functions.php - updated Google webfonts list
+ * admin-interface.php - Added theme options preparatory and sanitization functions.
+
+2011.07.06 - version 4.2.0
+ * admin-init.php,
+   admin-functions.php,
+   admin-custom.php,
+   admin-medialibrary-uploader.php,
+   admin-shortcodes.php,
+   admin-sbm.php,
+   admin-seo.php,
+   admin-framework-settings.php,
+   admin-custom-nav.php,
+   admin-setup.php,
+   admin-interface.php,
+   admin-tumblog-quickpress.php - Security fixes, enhancements, and error suppression from Mark Jaquith.
+ * admin-custom.php - Fixed conflict between WooSEO word-count fields and WordPress V3.2.
+ * /js/shortcode-generator/js/dialog-js.php - Fixed conflict between the Columns shortcode generator and WordPress V3.2.
+
+2011.07.02 - version 4.1.8
+ * admin-functions.php - Made woo_image and woo_embed pluggable
+
+2011.07.01 - version 4.1.7
+ * admin-functions.php - added more google fonts
+
+2011.06.27 - version 4.1.6
+ * admin-custom.php - Optimised database queries surrounding the call to add_meta_box() and added filter to meta box settings.
+ * admin-functions.php - Fixed logic error surrounding the "use third party data" setting. Added woo_prepare_category_ids_from_option() function.
+ * admin-functions.php - Added new Google fonts
+ * admin-interface.php - Added Courier font, applied filter to the WooThemes options machine
+ * admin-style.css - Added additional options styling
+ * admin-functions.php - do_shortcode on output in woo_embed so shortcodes work in embed field
+
+2011.06.20 - version 4.1.5
+ * /js/shortcode-generator/js/dialog-js.php - Preserve line breaks when using a textarea in the Shortcode Generator screens.
+
+2011.06.13 - version 4.1.4
+ * admin-shortcodes.php - Added Google +1 Button shortcode.
+ * js/shortcode-generator/editor_plugin.js - Added Google +1 Button to shortcodes menu.
+ * js/shortcode-generator/shortcodes/google_plusone.js - Added Google +1 Button generator screen.
+ * admin-functions.php - Added modification to woo_breadcrumbs() to use get_page_by_title() if the parent page isn't found using get_page_by_path().
+
+2011.05.31 - version 4.1.3
+ * admin-sbm.php - Adjusted array of custom sidebars to be ordered in a specific fashion, and not by the order in which they were created.
+
+2011.06.10 - version 4.1.2
+ * admin-functions.php - new google fonts
+
+2011.05.30 - version 4.1.1
+ * admin-interface.php - Removed console.log to fix "theme options not saving" issue.
+ * admin-shortcodes.php - Adjusted HTML outputted by button shortcode to pass W3C validation.
+
+2011.05.21 - version 4.1.0
+ * admin-functions.php - Added new Google Fonts.
+ * admin-interface.php - Solved bug where typography options were being set to 9px on all typography options.
+ * admin-functions.php - tweaked woo_image auto image tests, and vt_resize width checks
+ * admin-setup.php - changed $woo_options to get_option to work with older themes that don't load $woo_options
+
+2011.05.20 - version 4.0.9
+ * admin-setup.php - removed notices from texttitle and tagline options if not set
+
+2011.05.12 - version 4.0.8
+ * admin-functions.php - fixed get_theme_data() in woo_admin_bar_menu()
+
+2011.05.11 - version 4.0.7
+ * admin-functions.php - added new google fonts
+
+2011.05.10 - version 4.0.6
+ * admin-sbm.php - Fixed bug with taxonomy terms that have children not displaying the correct sidebar widgets.
+
+2011.05.09 - version 4.0.5
+ * admin-shortcodes.php - Fixed warning message if no attributes are set in the contact form shortcode, as well as adding support for checkbox and radio button field types.
+
+2011.05.05 - version 4.0.4
+ * admin-setup.php - Moved woo_load_textdomain() call to fire on "init".
+ * admin-custom-nav.php, 
+   admin-custom.php, 
+   admin-framework-settings.php, 
+   admin-functions.php,  
+   admin-interface.php, 
+   admin-medialibrary-uploader.php, 
+   admin-sbm.php, 
+   admin-seo.php, 
+   admin-setup.php, 
+   admin-shortcodes.php, 
+   admin-tumblog-quickpress.php - Code clean-up and consistency checks. Replaced calls to bloginfo( 'template_directory' ) and bloginfo( 'template_url' ) with get_template_directory_uri().
+
+2011.05.04 - version 4.0.3
+ * admin-interface.php - Fixed bug in save logic where arbitrary integers were being inserted into "Subscribe and Connect" text input fields.
+ * admin-setup.php - fixed bug where site description wasn't showing on older themes that don't have the new site description option.
+
+2011.05.03 - version 4.0.2
+ * admin-interface.php - Make sure slashes are stripped from "text" field type values on save.
+ * admin-functions.php - Make sure slashes are stripped from all instances of the page title output (woo_title, wp_title and admin_title).
+ * admin-functions.php - Added generic "ie" body class to all Internet Explorer body classes, as well as an "ie9" body class for use with Internet Explorer 9.
+ * admin-shortcodes.php - Added optional CSS class field ("css") to the "tabs" shortcode.
+ * /shortcode-generator/shortcodes/tab.js - Updated "tab" shortcode generator with the new "css" field.
+ * admin-framework-settings.php - Added support to the exporter for values in "type" fields that are setup as arrays.
+ * admin-functions.php - vt_resize: Use set width from woo_image when returning image that hasn't been resized. Image will be stretched to fit. Fixes issues where image uploaded is smaller than width of slider etc.
+
+2011.05.02 - version 4.0.1
+ * admin-functions.php - Added new Google webfonts.
+
+2011.04.25 - version 4.0.0
+ * admin-init.php - Version bump.
+ * admin-setup.php - added option for tagline CSS output from options
+
+2011.04.25 - version 3.10.1
+ * css/tumblog.css - Removed redundant Tumblog style.
+
+2011.04.20 - version 3.10.0
+ * admin-shortcodes.php - Added optional excerpt length, with "read more" link options, to the content toggle shortcode. Added "Share via LinkedIn" shortcode.
+ * /js/shortcodes.js - Added logic for the excerpt "read more" link in the content toggle shortcode.
+ * /js/shortcode-generator/shortcodes/toggle.js - Added new shortcode attributes to content toggle shortcode generator screen.
+ * /js/shortcode-generator/js/dialog-js.php - Added defaultValue logic for text input fields on shortcode generator screens.
+ * /css/shortcodes.css - Added base CSS styles for the "more text" used if using the optional excerpt in the content toggle shortcode.
+ * /js/shortcode-generator/js/editor_plugin.js - Added "Share via LinkedIn" shortcode to the Generator menu.
+ * /js/shortcode-generator/preview-shortcode-external.php - Added custom action hook in the footer, to enable the loading of custom scripts without requiring wp_footer().
+
+2011.04.18 - version 3.9.0
+ * admin-seo.php - Added support for WordPress SEO by Yoast to WooSEO.
+ * admin-functions.php - Added support for WordPress SEO by Yoast to WooSEO.
+ * admin-hooks.php - Added context function and woo_*_atomic() functions for use in hooks, as well as implemented woo_do_atomic() in the various woo hooks.
+ * admin-functions.php - added new Google fonts
+
+2011.04.09 - version 3.8.2
+ * admin-functions.php - added new google fonts
+
+2011.04.07 - version 3.8.1
+ * admin-functions.php - Added filtering mechanism to woo_title() and adjusted woo_pagination() to always move the raw query string to the end of the pagination links.
+
+2011.03.30 - version 3.8.0
+ * admin-framework-settings.php - Added options to disable WordPress Admin Bar and enable WooFramework admin bar enhancements.
+ * admin-functions.php - Logic to either disable the WordPress Admin Bar or add WooFramework enhanced navigation menu items.
+
+2011.03.28 - version 3.7.14
+ * admin-shortcodes.php - Corrected new line characters in contact form shortcode. Added "rel" option to social icon shortcode.
+ * /js/shortcode-generator/shortcodes/social_icon.js - Added field for the "rel" option to the social icon shortcode generator.
+
+2011.03.18 - version 3.7.13
+ * admin-init.php, admin-setup.php, admin-shortcodes.php - made all HEAD output neat
+ * admin-functions.php - added more google fonts
+ 
+2011.03.17 - version 3.7.12
+ * admin-functions.php - modified vt_resize to not resize if the width and height of original image are smaller than resized area.
+
+2011.03.16 - version 3.7.11
+ * admin-functions.php - added @ to omit PHP warning message in woo_custom_login_logo()
+
+2011.03.14 - version 3.7.10
+ * admin-express-functions.php - upgraded to use post formats functionality
+
+2011.03.09 - version 3.7.09
+ * admin-interface.php - changed wording on Reset Options button
+
+2011.03.05 - version 3.7.08
+ * admin-shortcodes.php - Allow shortcodes to be added inside the "info box" shortcode.
+ * admin-sbm.php - Fixed "array_key_exists" warning message after resetting the Sidebar Manager.
+
+2011.03.02 - version 3.7.07
+ * admin-functions.php - Added support for BuddyPress search to woo_pagination().
+ * admin-tumblog-quickpress.php - Only load tumblog styles on dashboard
+
+2011.03.01 - version 3.7.06
+ * admin-tumblog-quickpress.php - added additional editor handling
+ 
+2011.02.28 - version 3.7.05
+ * admin-tumblog-quickpress.php - added safari editor fix
+ 
+2011.02.27 - version 3.7.04
+ * admin-setup.php - moved woothemes_wp_head() content into seperate pluggable functions
+
+2011.02.26 - version 3.7.03
+ * admin-sbm.php - Fixed conflict between custom page template-based and category-based sidebars.
+ * admin-sbm.php - Fixed Sidebar Manager reset functionality.
+
+2011.02.24 - version 3.7.02
+ * admin-interface.php - removed deprecated tumblog functions
+ * admin-tumblog-quickpress.php - upgraded tumblog functions to use post formats functionality
+ * admin-express-functions-deprecated.php - created deprecated functions file
+ * admin-express-functions.php - upgraded to use post formats functionality
+ * /js/shortcode-generator/editor_plugin.js - Changed the method by which we detect the editor button icon.
+ * /js/shortcode-generator/js/dialog-js.php - Added fixes for supporting Windows-based web servers.
+ * admin-shortcodes.php - Added code to prevent the warning message in the shortcode preview for the custom typography shortcode.
+ 
+2011.02.23 - version 3.7.01
+ * admin-functions.php - woo_image(): Added alt tag to custom field images (the_title)
+
+2011.02.22 - version 3.7.00
+ * admin-functions.php - Added woo_pagination() and woo_breadcrumbs() functions.
+ * admin-shortcodes.php - Added optional tabber title to the tabber shortcode.
+ * /js/shortcode-generator/shortcodes/tab.js - Added "vertical" alternate style.
+ * /js/shortcode-generator/js/dialog-js.php - Increased total allowed tabs to 10 in the tabber controller in the shortcode generator.
+ * /css/shortcodes.css - Added "vertical" alternate style to the tabber shortcode.
+ 
+
+2011.02.19 - version 3.6.09
+ * admin-functions.php - fixed vt_resize() to not remove 1px if the image width is same as resize width
+
+2011.02.19 - version 3.6.08
+ * admin-shortcodes.php - Changed "info box" shortcode to use DIV tag instead of P tag. Removed trailing slash on URLs in the "social icon" shortcode.
+ * css/shortcodes.css - Updated "info box" style to use DIV tag instead of P tag.
+
+2011.02.18 - version 3.6.07
+ * admin-shortcodes.php - Added "nav-tab" class to tab navigation items in the tabber shortcode.
+ * js/shortcodes.js - Refined tabber JavaScript.
+ * css/shortcodes.css - Cleaned up tabber shortcode CSS to support nested unordered and ordered lists.
+
+2011.02.18 - version 3.6.06
+ * admin-functions.php - Fixed bug where Twitter widget was intermittently generating incorrect links to tweets.
+ * admin-functions.php - added some more Google Fonts
+
+2011.02.17 - version 3.6.05
+ * admin-sbm.php - Added functionality to display the category custom sidebar on single posts in that category in the Sidebar Manager.
+ * admin-sbm.php - Added a note explaining how the new "category sidebar on single posts" functionality works.
+
+2011.02.16 - version 3.6.04
+ * admin-functions.php - Added fix for using custom post ID in woo_image().
+ * admin-shortcodes.php - Added option to use pre-defined colour scheme in button shortcode, open in new window in social icon shortcode and tweaked options in fblike shortcode.
+ * /js/shortcode-generator/shortcodes/button.js - Added pre-defined colour scheme selection option.
+ * /js/shortcode-generator/shortcodes/fblike.js - Tweaked options to make sure all options display correctly.
+ * /js/shortcode-generator/shortcodes/social_icon.js - Added option to open the link in a new window.
+ * admin-framework-settings.php - Added Sidebar Manager data to the import/export function.
+
+2011.02.15 - version 3.6.03
+ * admin-functions.php - vt_resize() added file_exists check
+ * admin-functions.php - fixed image placeholder to not show in_the_loop on singular pages
+
+2011.02.14 - version 3.6.02
+ * admin-shortcodes.php - Added social_icon shortcode and restructured contact form shortcode to work within tabber.
+ * /js/shortcode-generator/shortcodes/social_icon.js - Generator controller for social_icon shortcode.
+ * /js/shortcode-generator/editor_plugin.js - Added link on the shortcode generator menu for the social_icon.
+ * /css/shortcodes.css - Adjusted contact form shortcode CSS to accommodate the new code structure.
+ * admin-functions.php - Tested Google Fonts and fixed several that weren't displaying.
+
+2011.02.11 - version 3.6.01
+ * admin-functions.php - Fixed woo_twitter_script to include retweets
+
+2011.02.08 - version 3.6.00
+ * admin-functions.php - Added support in woo_embed() for html_entity_decode. Fixed spelling mistake on "Kristi" Google Webfont. Fixed seo_follow meta custom field to switch depending on the default option.
+ * admin-shortcodes.php - New shortcodes ( Dropcap, Text highlight, Abbreviated text, Custom Typography (using Google Fonts), Alt-style support for the tabber, Content Toggle, Ordered and Unordered List Generators, with various alt styles for the bullets).
+ * admin-shortcode-generator.php - Enqueued colorpicker CSS and JavaScript files for use in the generator.
+ * admin-style.css - Fixed z-index issue in options screen.
+ * /css/shortcode-generator.css - Updated styling for shortcode generator.
+ * /css/shortcodes.css - Added CSS for new shortcodes.
+ * /images/shortcode-*.png - New images for unordered list style shortcode.
+ * /js/shortcode-generator/editor-plugin.js - Added additional shortcodes to menu, and new "skip lightbox" functionality for simple shortcodes.
+ * /js/shortcode-generator/preview-shortcode-external.php - Updated preview to include call to Google Fonts.
+ * /js/shortcode-generator/shortcodes/* - Added control files for new shortcodes.
+ * /js/shortcode-generator/js/dialog-js.php - Added additional form field controls. Integrated setup function for the colorpicker.
+ * /js/shortcodes.js - Added JavaScript for content toggle shortcode.
+ * admin-shortcodes.php - Refined and tested custom typography shortcode and font loader.
+ * /js/shortcode-generator/shortcodes/unordered_list.js - Refined functionality to remove list items textarea.
+ * /js/shortcode-generator/shortcodes/ordered_list.js - Refined functionality to remove list items textarea.
+ * /js/shortcode-generator/shortcodes/typography.js - Integrated colorpicker.
+ * /js/shortcode-generator/shortcodes/button.js - Integrated colorpicker.
+
+2011.02.07 - version 3.5.7
+ * admin-shortcode-generator.php - Made shortcode icon available to Authors
+
+2011.02.05 - version 3.5.6
+ * admin-functions.php - Added new google fonts. Fixed issue with auto image thumbnails in related posts shortcode on single post page
+
+2011.02.02 - version 3.5.5
+ * admin-functions.php - fixed woo_image using wrong image in WooTabs on single posts
+
+2011.02.02 - version 3.5.4
+ * admin-framework-settings - commented out Font Stack Beta since not functioning properly and Google Fonts better alternative than non-websafe fonts.
+ * admin-functions.php - fixed woo_image using wrong image in WooTabs on single posts
+ * admin-interface.php - fixed SBM hide option
+
+2011.02.01 - version 3.5.3
+ * admin-custom.php - SEO fix for Content Builder.
+ * admin-tumblog-quickpress.php - Safari dashboard widget editor bugfix.
+ 
+2011.01.31 - version 3.5.2
+ * admin-functions.php - added new function woo_get_youtube_video_image() to work with new YouTube iframe embed code
+ * css/admin-shortcodes.css - fixed sixcol_four width
+
+2011.01.28 - version 3.5.1
+ * admin-functions.php - woo_image() added native resizing to placeholder image if it is enabled. Made sure auto thumbs don't show on single posts.
+ * admin-framework-settings.php - removed reset button as it doesn't work.
+ * admin-shortcodes.php - Updated tabber shortcode CSS class to "shortcode-tabs". Added optional "URL" field to fbshare shortcode.
+ * /includes/css/shortcodes.css - Updated tabber CSS class. Added "clear" to tabber container CSS.
+ * /includes/js/shortcodes.js - Updated tabber JavaScript to reflect new CSS class.
+ * /includes/js/shortcode-generator/shortcodes/fbshare.js - Controller for the "fbshare" shortcode in the generator.
+ * /includes/js/shortcode-generator/editor_plugin.js - Added menu item for the "fbshare" shortcode to the generator menu.
+
+2011.01.21 - version 3.5.0
+ * /admin-shortcode-generator.php - Functionality for the shortcode generator.
+ * /admin-init.php - Require functionality for the shortcode generator.
+ * /js/shortcode-generator/* - JavaScript and related functionality for the shortcode generator.
+ * /css/shortcode-generator.css - CSS styles for the shortcode generator dialog box.
+ * /images/shortcode-icon.png - Icon for the shortcode button on the tinyMCE editor.
+ * admin-tumblog-quickpress.php - fix to make JS used for tumblog only load in admin area, not in theme.
+ * admin-shortcodes.php - Added tabber shortcode and enqueue function for shortcodes.js file.
+ * includes/js/shortcodes.js - Added JavaScript for use in shortcodes.
+ * includes/css/shortcodes.css - Added styling for contact form shortcode.
+
+2011.01.20 - version 3.4.14
+ * admin-functions.php - output proper alt tag woo_image() 
+
+2011.01.18 - version 3.4.13
+ * /js/woo-medialibrary-uploader.js - The "Link URL" field is no longer required to have a value (prevent white screen error).
+ * admin-custom.php - Removed "mysql_real_escape_string()" calls in order to debug and resolve several issues with custom field data on save.
+
+2011.01.13 - version 3.4.12
+ * admin-functions.php - Added framework settings function for setting custom logo on WP login page. Added function_exists to a few functions.
+ * admin-framework-settings.php, admin-seo.php - Cleaned up options and added a few more disable menu item options. Added icons.
+ 
+2011.01.11 - version 3.4.11
+ * admin-functions.php - SEO: Added custom setting in post/page for setting robots to "noindex"
+
+2011.01.11 - version 3.4.10
+ * admin-functions.php - added new google fonts http://code.google.com/webfonts?subset=latin&sort=added
+ * admin-shortcodes.php - added option to open button shortcode link in new window
+
+2011.01.10 - version 3.4.09
+ * admin-framework-settings.php - Fixed bug in export code generator.
+
+2011.01.08 - version 3.4.08
+ * admin-interface.php - Fixed nonce bug with Font Stacks (beta).
+
+2011.01.07 - version 3.4.07
+ * admin-functions.php - Fixed Coda Google Font
+
+2011.01.03 - version 3.4.06
+ * admin-functions.php - Added woo_encoding_convert()
+ * admin-custom-nav.php - Removed woo_encoding_convert()
+ 
+2010.12.31 - version 3.4.05
+ * admin-functions.php - Added 1 new google font
+
+2010.12.30 - version 3.4.04
+ * admin-custom.php - added stripslashes to textarea custom field
+
+2010.12.28 - version 3.4.03
+ * admin-shortcodes.php - added extra height to fblike button with showfaces set to true
+
+2010.12.26 - version 3.4.02
+ * admin-functions.php - Added support for encoding certain HTML entities in SEO META description field, for successful W3C validation.
+
+2010.12.23 - version 3.4.01
+ * admin-init.php - check if WooNav option is enabled in framework settings
+ * admin-interface.php - removed old WooNav check
+
+2010.12.20 - version 3.4.00
+ * admin-init.php - added content builder support
+ * admin-custom.php - added content builder support
+ * admin-interface.php - added content builder support
+ * admin-style.css - added content builder support
+ * /images/option-icon-search.png - added image icon
+ * /images/option-icon-favorite.png - added image icon
+ * /images/option-icon-upload.png - added image icon
+ * /images/option-icon-listing.png - added image icon
+ 
+2010.12.18 - version 3.3.08
+ * admin-functions.php, admin-interface.php - Improved Google Fonts functions. Added more fonts.
+
+2010.12.15 - version 3.3.07
+ * admin-custom.php - Resolved issue with saving of custom meta fields on existing posts.
+
+2010.12.11 - version 3.3.06
+ * admin-functions.php, admin-interface.php - Added new google fonts
+
+2010.12.11 - version 3.3.05
+ * admin-medialibrary-uploader.php - Fixed bug in Media Library uploader on post admin pages.
+
+2010.12.10 - version 3.3.04
+ * admin-functions.php - updated framework updater page styling and copy.
+
+2010.12.10 - version 3.3.03
+ * admin-setup.php - fixed alt stylesheet bug
+
+2010.12.09 - version 3.3.02
+ * admin-functions.php - Fixed issue with html_entity_decode() function in PHP4.
+
+2010.12.08 - version 3.3.01
+ * admin-custom.php - Sanitised $_REQUESTs.
+ * admin-framework-settings.php - Sanitised $_REQUESTs. Added nonce (carries over through other options pages).
+ * admin-functions.php - Sanitised $_REQUESTs. Sanitised woo_style_path() GET/POST variables.
+ * admin-interface.php - Sanitised $_REQUESTs. Added nonce to save and reset functions.
+ * admin-medialibrary-uploader.php - Sanitised $_REQUESTs.
+ * admin-sbm.php - Sanitised $_REQUESTs and $_POST'ed values.
+ * admin-seo.php - Sanitised $_REQUESTs.
+ * admin-setup.php - Sanitised $_REQUESTs.
+ * js/woo-scripts.js - Resolved JavaScript selector issue, causing label on image width/height fields to hide on save.
+
+2010.12.06 - version 3.3.00
+ * admin-interface.php - removed Custom Navigation menu item, and added option to enable it in Framework Settings
+ * admin-framework-settings.php - removed Custom Navigation menu item, and added option to enable it in Framework Settings
+ * admin-functions.php - fix in woo_image for WPBundle post thumbnails
+
+2010.12.06 - version 3.2.13
+ * admin-functions.php - woo_image links to full image if single post instead of natively resized WP Thumbnail
+
+2010.12.01 - version 3.2.12
+ * js/woo-medialibrary-uploader.js - Added additional support for non-image files.
+ * admin-setup.php - added if function_exists to load_child_theme_textdomain
+
+2010.11.30 - version 3.2.11
+ * admin-functions.php - fixed bug with native image resizer image width equal to specified width
+
+2010.11.29 - version 3.2.10
+ * admin-sbm.php - Fixed bug in sidebar generation for post tags (test case: "video" tag).
+ * admin-shortcodes.php, css/shortcodes.css - added alert icon link
+
 2010.11.25 - version 3.2.09
  * admin-sbm.php - Added support for custom post types in the Sidebar Manager.
+ * admin-functions.php - added ie7 and ie6 classes to browser_body_class
 
 2010.11.23 - version 3.2.08 
  * admin-functions.php - woo_image() native resize check and set width of image before resize to avoid error
@@ -51,7 +675,7 @@
  * admin-functions.php - updated woo_image 'url' function
 
 2010.11.09 - version 3.1.11
- * admin-functions.php - Improved logic with new native resize. Added option for Post URL ('url') to the link parameter
+ * admin-functions.php - Improved logic with new native resize. Added option for Post URL ( 'url') to the link parameter
 
 2010.11.08 - version 3.1.10
  * admin-style.css - styling updates for options panel
@@ -74,7 +698,7 @@
  * admin-style.css - Fixed SBM IE styling bugs
 
 2010.10.28 - version 3.1.05
- * admin-sbm.php - Added patch to jQuery for IE .live('submit') issue.
+ * admin-sbm.php - Added patch to jQuery for IE .live( 'submit') issue.
 
 2010.10.27 - version 3.1.04
  * admin-functions.php - updated the woo_get_fw_version() function with a new mothod
@@ -466,7 +1090,7 @@
  
 2010.03.16 - version 2.5.07
  * admin-custom-nav.php - bug fix for custom menu items current page item class
- * admin-setup.php - added define('THEME_FRAMEWORK','woothemes');
+ * admin-setup.php - added define( 'THEME_FRAMEWORK','woothemes' );
  
 2010.03.15 - version 2.5.06
  * admin-custom-nav.php - added support for umlauts and other special chars
@@ -652,8 +1276,8 @@
 2009.08.26 - Version 1.0.07
  * admin-setup.php - Added localization
  * admin-setup.php - Added custom.css stylesheet link insert into the header
- * admin-interface.php - Changed ABSPATH to TEMPLATEPATH when assigning the get_theme_data argument.
- * admin-functions.php - Changed ABSPATH to TEMPLATEPATH when assigning the get_theme_data argument.
+ * admin-interface.php - Changed ABSPATH to get_template_directory() when assigning the get_theme_data argument.
+ * admin-functions.php - Changed ABSPATH to get_template_directory() when assigning the get_theme_data argument.
  * admin-functions.php - Reworked woo_get_image to be less dependent on php function and added, 'woo_force_all' and 'woo_force_single' options for image sizing issues.
  * admin-interface.php - Reworked the file uploader to catch permission errors.
  * admin-costom.php - Reworked the file uploader to catch permission errors.

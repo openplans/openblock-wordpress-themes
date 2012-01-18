@@ -2,7 +2,7 @@
        
 	<div id="featured">
         <div id="page-title" class="content">
-            <h2 class="page"><?php _e('Search Results',woothemes); ?></h2>
+            <h2 class="page"><?php _e('Search Results', 'woothemes' ); ?></h2>
         </div>
     </div>
            
@@ -19,7 +19,7 @@
                 <div class="post wrap">
 
                     <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                    <p class="post-details"><?php _e('Posted on',woothemes); ?> <?php the_time('d. M, Y'); ?> <?php _e('by',woothemes); ?> <?php the_author_posts_link(); ?> <?php _e('in',woothemes); ?> <?php the_category(', ') ?></p>
+                    <p class="post-details"><?php _e('Posted on', 'woothemes' ); ?> <?php the_time('d. M, Y'); ?> <?php _e('by', 'woothemes' ); ?> <?php the_author_posts_link(); ?> <?php _e('in', 'woothemes' ); ?> <?php the_category(', ') ?></p>
                     
                     <?php the_excerpt(); ?>
 
@@ -27,13 +27,13 @@
                 <!-- Post Ends -->
                                                     
                 <?php endwhile; else: ?>
-                    <p><?php _e('Sorry, no posts matched your criteria.',woothemes); ?></p>
+                    <p><?php _e('Sorry, no posts matched your criteria.', 'woothemes' ); ?></p>
                 <?php endif; ?>  
         
                 <div class="more_entries">
                     <?php if (function_exists('wp_pagenavi')) wp_pagenavi(); else { ?>
-                    <div class="alignleft"><?php previous_posts_link(__('&laquo; Newer Entries ',woothemes)) ?></div>
-                    <div class="alignright"><?php next_posts_link(__(' Older Entries &raquo;',woothemes)) ?></div>
+                    <div class="alignleft"><?php previous_posts_link(__('&laquo; Newer Entries ', 'woothemes' )) ?></div>
+                    <div class="alignright"><?php next_posts_link(__(' Older Entries &raquo;', 'woothemes' )) ?></div>
                     <br class="fix" />
                     <?php } ?> 
                 </div>		

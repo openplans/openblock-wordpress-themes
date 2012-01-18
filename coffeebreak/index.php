@@ -32,12 +32,11 @@
                    <div <?php if ( get_post_meta($post->ID, 'mini', true) ) { ?>class="feature"<?php } ?>>
                        <h3><?php the_title(); ?></h3>
                        <p><?php echo get_post_meta($post->ID, 'mini_excerpt', true) ?></p>
-                       <?php if ( get_post_meta($post->ID, 'mini_readmore', true) ) { ?><a href="<?php echo get_post_meta($post->ID, 'mini_readmore', $single = true); ?>" class="btn"><span><?php _e('Read More', woothemes); ?></span></a><?php } ?>
+                       <?php if ( get_post_meta($post->ID, 'mini_readmore', true) ) { ?><a href="<?php echo get_post_meta($post->ID, 'mini_readmore', $single = true); ?>" class="btn"><span><?php _e('Read More', 'woothemes' ); ?></span></a><?php } ?>
                     </div>
                     <div class="hr"></div>
         
                 <?php endwhile; endif; ?>
-                <?php woo_sidebar('homepage'); ?>
 	            </div><!-- /#mini-features -->
 	            <?php } ?>
                     

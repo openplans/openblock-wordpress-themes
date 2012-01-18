@@ -1,5 +1,50 @@
 *** Coffee Break Changelog ***
 
+2011.10.29 - version 2.4.1
+ * single.php - Added Post Author box
+ * includes/theme-options.php - Added Post Author box
+ * style.css - Added Post Author box
+
+2011.10.29 - version 2.4
+ * includes/theme-functions.php - added Subscribe & Connect and organized the file
+ * includes/theme-options.php - added Subscribe & Connect options
+ * includes/theme-widgets.php - updated to the widget file structure
+ * includes/widgets/widget-woo-*.php - each widget has it's own file now
+ * single.php - added Subscribe & Connect
+ * style.css - added Subscribe & Connect
+ * images/ - added multiple social icons
+
+2011.09.30 - version 2.3
+ * includes/theme-options.php - added hover pause option to slider
+
+2011.09.22 - version 2.2.3
+ * single.php, page.php - changed H2 to H1
+ * style.css - added h1 styling (line 73, 112)
+
+2011.08.31 - version 2.2.2
+ * /includes/theme-functions.php - Add JavaScript logic to the slider to enable the slider to load with a single slide.
+ * /includes/slider.php - Hide the next/previous slider arrows if only a single slide is available.
+
+2011.07.27 - version 2.2.1
+ * /includes/theme-widgets.php - Added apply_filters( 'widget_title' ) to all widgets to add support for WPML.
+
+2011.06.28 - version 2.2
+ * style.css - added #slides section
+ * includes/slider.php - Added slides id and class. removed loopedSlider jquery
+ * includes/theme-options.php - added new option for fade/slide
+ * includes/theme-js.php,
+   includes/theme-functions.php,
+   includes/js/slides.min.jquery.js - added slidesJS
+ * images/loading.png - new preloader image for slider
+
+2011.04.15 - version 2.1.1
+ * includes/theme-options.php - Added option to display full post or excerpt in archives.
+ * archive.php - modified the loop to show full content/excerpt with read more
+ * template-blog.php - modified the loop to show full content/excerpt with read more
+
+2011.04.01 - version 2.1
+ * includes/theme-options.php - Added option to display full post or excerpt in archives.
+
 2010.11.12 - version 2.0.3
  * includes/theme-functions.php - fixed bug with saving custom field images
 

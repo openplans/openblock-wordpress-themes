@@ -1,5 +1,21 @@
 <?php
 
+/*-----------------------------------------------------------------------------------
+
+TABLE OF CONTENTS
+
+- set_new_taxonomy_tag()
+- express_version()
+- express_getPostsWithOffset()
+- express_uploadFile()
+- express_woo_taxonomy()
+- express_woo_post_format()
+- express_newPost()
+- express_editPost()
+- attach_express_methods()
+
+-----------------------------------------------------------------------------------*/
+
 /**
  * Set taxonomies for post
  *
@@ -191,7 +207,7 @@ function express_uploadFile($args) {
 
 	if ( !current_user_can('upload_files') ) {
 		logIO('O', '(MW) User does not have upload_files capability');
-		return new IXR_Error(401, __('You are not allowed to upload files to this site.'));
+		return new IXR_Error(401, __('You are not allowed to upload files to this site.', 'woothemes'));
 	}
 
 	if ( $upload_err = apply_filters( "pre_upload_error", false ) )
@@ -217,7 +233,7 @@ function express_uploadFile($args) {
 
 	$upload = wp_upload_bits($name, $type, $bits);
 	if ( ! empty($upload['error']) ) {
-		$errorString = sprintf(__('Could not write file %1$s (%2$s)'), $name, $upload['error']);
+		$errorString = sprintf(__('Could not write file %1$s (%2$s)', 'woothemes'), $name, $upload['error']);
 		logIO('O', '(MW) ' . $errorString);
 		return new IXR_Error(500, $errorString);
 	}
@@ -290,17 +306,68 @@ function express_woo_taxonomy($args) {
 
 
 /*
+ * Woo Post Formats
+ *
+ * Set the proper post format
+ *
+ */
+	
+function express_woo_post_format($args) {
+	$content_struct = $args[3];
+
+	// Convert the taxonomies to post formats
+	$taxonomies = $content_struct['taxonomy'];
+	if (is_array($taxonomies)) {
+		$post_format = '';
+		foreach ($taxonomies as $taxonomy) {
+			if ($taxonomy['taxonomy'] == 'tumblog') {
+				foreach ($taxonomy['tags'] as $tag) {
+					switch (strtolower($tag)) {
+						case 'note':
+							$post_format = 'aside';
+							break;
+						case 'link':
+							$post_format = 'link';
+							break;
+						case 'quote':
+							$post_format = 'quote';
+							break;
+						case 'image':
+							$post_format = 'image';
+							break;
+						default:
+							$post_format = 'default';
+							break;
+					}	
+				}
+			}
+		}
+		$content_struct['taxonomy'] = '';
+		$content_struct['wp_post_format'] = $post_format;
+		$args[3] = $content_struct;
+	}
+	
+	return $args;
+}
+
+
+/*
  * New post
  *
  * Sets post attachements if specified
- * Sets post custom taxonomy
+ * Sets post custom taxonomy or post format
  *
  */
 	
 function express_newPost($args) {
 	global $wp_xmlrpc_server;
-	
-	$args = express_woo_taxonomy($args);
+
+	if (get_option('woo_tumblog_content_method') == 'post_format') {	
+		$args = express_woo_post_format($args);
+	}
+	else {
+		$args = express_woo_taxonomy($args);
+	}
 	
 	$result = $wp_xmlrpc_server->mw_newPost($args);
 	$post_ID = intval($result);
@@ -309,10 +376,12 @@ function express_newPost($args) {
 	$content_struct = $args[3];
 
 	// Insert taxonomies
-	if ( isset($content_struct['taxonomy']) ) {
-		set_new_taxonomy_tag($post_ID, $content_struct['taxonomy']);
-	}
-	
+	if (get_option('woo_tumblog_content_method') != 'post_format') {	
+		if ( isset($content_struct['taxonomy']) ) {
+			set_new_taxonomy_tag($post_ID, $content_struct['taxonomy']);
+		}
+	}	
+
 	// Add new attachments
 	$attachments = $content_struct['attachments'];
 	if (is_array($attachments)) {
@@ -333,22 +402,29 @@ function express_newPost($args) {
  * Edit post
  *
  * Sets post attachements if specified
- * Sets post custom taxonomy
+ * Sets post custom taxonomy or post format
  *
  */
 	
 function express_editPost($args) {
 	global $wp_xmlrpc_server;
 	
-	$args = express_woo_taxonomy($args);
+	if (get_option('woo_tumblog_content_method') == 'post_format') {	
+		$args = express_woo_post_format($args);
+	}
+	else {
+		$args = express_woo_taxonomy($args);
+	}
 	
 	$result = $wp_xmlrpc_server->mw_editPost($args);
 	if ($result == false) return false;
 
 	// Insert taxonomies
-	if ( isset($content_struct['taxonomy']) ) {
-		set_new_taxonomy_tag($post_ID, $content_struct['taxonomy']);
-	}
+	if (get_option('woo_tumblog_content_method') != 'post_format') {	
+		if ( isset($content_struct['taxonomy']) ) {
+			set_new_taxonomy_tag($post_ID, $content_struct['taxonomy']);
+		}
+	}	
 	
 	// TODO: Remove old attachments
 	

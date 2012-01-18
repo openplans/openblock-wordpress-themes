@@ -18,7 +18,7 @@ Template Name: Archives Page
 			<div id="main">
             
                 <div class="post">
-                    <h2><?php _e('The Last 30 Posts',woothemes); ?></h2>
+                    <h2><?php _e('The Last 30 Posts', 'woothemes' ); ?></h2>
         
                     <ul>
                         <?php query_posts('showposts=30'); ?>
@@ -32,7 +32,7 @@ Template Name: Archives Page
                 
                 <div class="post">
             
-                    <h2><?php _e('Categories',woothemes); ?></h2>
+                    <h2><?php _e('Categories', 'woothemes' ); ?></h2>
         
                     <ul>
                         <?php wp_list_categories('title_li=&hierarchical=0&show_count=1') ?>	
@@ -40,7 +40,7 @@ Template Name: Archives Page
                 </div>                    
 
                 <div class="post">
-                    <h2><?php _e('Monthly Archives',woothemes); ?></h2>
+                    <h2><?php _e('Monthly Archives', 'woothemes' ); ?></h2>
         
                     <ul>
                         <?php wp_get_archives('type=monthly&show_post_count=1') ?>	

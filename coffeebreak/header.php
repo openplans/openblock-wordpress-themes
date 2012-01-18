@@ -32,7 +32,6 @@ jQuery(function() {
 </head>
 
 <body <?php body_class(); ?>>
-<?php if (function_exists('openplansify_html')) openplansify_html(); ?>
 
 <div id="wrap">
     <div id="top">
@@ -70,10 +69,10 @@ jQuery(function() {
         
                     } else { ?>
                     
-                        <li <?php if ( is_home() ) { ?> class="current_page_item" <?php } ?>><a href="<?php echo get_option('home'); ?>/"><span><?php _e('Home',woothemes); ?></span></a></li>
+                        <li <?php if ( is_home() ) { ?> class="current_page_item" <?php } ?>><a href="<?php echo get_option('home'); ?>/"><span><?php _e('Home', 'woothemes' ); ?></span></a></li>
                         <?php if ( get_option('woo_addblog') == "true" ) { ?>
                         <li <?php if ( is_category() || is_search() || is_single() || is_tag() || is_search() || is_archive() ) { ?> class="current_page_item" <?php } ?>>
-                            <a href="<?php echo get_option('home'); echo get_option('woo_blogcat'); ?>" title="Blog"><span><?php _e('Blog',woothemes); ?></span></a>
+                            <a href="<?php echo get_option('home'); echo get_option('woo_blogcat'); ?>" title="Blog"><span><?php _e('Blog', 'woothemes' ); ?></span></a>
                             <?php if (get_option('woo_catmenu') == "true") { ?><ul><?php wp_list_categories('title_li=&child_of='.get_option('woo_blog_cat_id') ); ?></ul><?php } ?>
                         </li>
                         <?php } ?>				

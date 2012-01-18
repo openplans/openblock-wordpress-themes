@@ -2,7 +2,7 @@
        
 	<div id="featured">
         <div id="page-title" class="content">
-            <h2 class="page"><?php the_title(); ?></h2>
+            <h1 class="page"><?php the_title(); ?></h1>
         </div>
     </div>
            
@@ -30,7 +30,7 @@
                 <!-- Post Ends -->
                                                     
 			<?php endwhile; else: ?>
-                <p><?php _e('Sorry, no posts matched your criteria.',woothemes); ?></p>
+                <p><?php _e('Sorry, no posts matched your criteria.', 'woothemes' ); ?></p>
             <?php endif; ?>  
         
             </div><!-- main ends -->

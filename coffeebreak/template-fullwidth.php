@@ -32,7 +32,7 @@ Template Name: Fullwidth Page
             <!-- Post Ends -->
                                                 
         <?php endwhile; else: ?>
-            <p><?php _e('Sorry, no posts matched your criteria.',woothemes); ?></p>
+            <p><?php _e('Sorry, no posts matched your criteria.', 'woothemes' ); ?></p>
         <?php endif; ?>  
     
 		</div>

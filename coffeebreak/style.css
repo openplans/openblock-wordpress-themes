@@ -1,6 +1,6 @@
 /*  
 Theme Name: Coffee Break
-Version: 2.0.3
+Version: 2.4.1
 Description: Designed by <a href="http://www.jepson.no">Magnus Jepson</a>.
 Author: WooThemes
 Author URI: http://www.woothemes.com
@@ -70,7 +70,7 @@ a { color: #2882c1; }
 
 #featured { background:#adc042 url(images/bg-slider-bot.png) repeat-x left bottom; border-top:1px solid #c9e044; border-bottom:1px solid #99aa3a;  }
 #featured #page-title { position:relative; }
-#featured #page-title h2 { padding:25px 0; }
+#featured #page-title h2, #featured #page-title h1 { padding:25px 0; }
 #featured .subscribe { position:absolute; right:0; top:25px; }
 #featured .alignright {margin: 5px 0px 8px 20px;float: right;}
 
@@ -85,7 +85,31 @@ a { color: #2882c1; }
 #loopedSlider li#p { position:absolute; top:170px; left:0px; }
 #loopedSlider li#n { position:absolute; top:170px; right:0px; }
 
-#featured h2 { color:#fff; font-size:40px; padding:0 0 10px; line-height:40px; font-weight:normal; letter-spacing:-1px; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15) }
+/* SlidesJS */
+#slides { 
+	margin:0 auto; 
+	padding:40px 0;	
+	position:relative; 
+	clear:both; 
+	width:960px;
+    min-height:300px;
+}
+#slides .slides_container {
+	display:none;
+    width:860px;
+    margin:0 auto;
+}
+#slides .slides_container div {
+    width:860px;
+    display:block;
+}
+
+#slides .nav-buttons { list-style-type:none; margin:0; padding:0; }
+#slides li#p { position:absolute; top:170px; left:0px; }
+#slides li#n { position:absolute; top:170px; right:0px; }
+
+
+#featured h2, #featured h1 { color:#fff; font-size:40px; padding:0 0 10px; line-height:40px; font-weight:normal; letter-spacing:-1px; text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15) }
 #featured h4 { font-size:18px; color:#333; font-family:Arial, Helvetica, sans-serif; line-height:22px; letter-spacing:1px; }
 #featured p { font-size:14px; color:#333; line-height:20px; }
 
@@ -155,6 +179,8 @@ a { color: #2882c1; }
 	position: relative;
 }
 
+#main .post .read-more a { text-decoration:none; }
+
 /* Main Content (advert 468x60) */
 
 #main .advert_468x60 {
@@ -222,11 +248,11 @@ a { color: #2882c1; }
 #sidebar ul li a{color:#636363;}
 #sidebar a:hover,#sidebar .current-cat a,#sidebar li.active a{color:#000;}
 #sidebar ul li .meta{display:block;font-size:11px;font-family:Arial, Helvetica, sans-serif;color:#878787;font-weight:normal;text-transform:uppercase;}
-#sidebar .block{background:#fcfcfc;border:1px solid #e9e8e8;padding:15px;}
-#sidebar .block .inside{border:#D5D4D4 5px solid;background:#EDEDED;padding-bottom:5px;}
-#sidebar .block .inside ul{padding:0;}
-#sidebar .block .inside li{line-height:18px;position:relative;padding:8px 0;}
-#sidebar .block .inside li img.thumbnail{border:#A4A4A4 2px solid;float:left;margin-right:10px;}
+#sidebar .widget{background:#fcfcfc;border:1px solid #e9e8e8;padding:15px;}
+#sidebar .widget .inside{border:#D5D4D4 5px solid;background:#EDEDED;padding-bottom:5px;}
+#sidebar .widget .inside ul{padding:0;}
+#sidebar .widget .inside li{line-height:18px;position:relative;padding:8px 0;}
+#sidebar .widget .inside li img.thumbnail{border:#A4A4A4 2px solid;float:left;margin-right:10px;}
 #sidebar ul,#sidebar .textwidget{clear:both;padding:5px 0;}
 #sidebar .widget{margin-bottom:25px;}
 #sidebar li{line-height:18px;overflow:hidden;padding:5px 0 0 0px;}
@@ -281,6 +307,29 @@ a { color: #2882c1; }
 #footer .col-left { width:540px; padding:0 20px 0 0; background:url(images/footer-bevel.gif) repeat-y top right; }
 #footer .col-right { width:280px;  }
 
+/* Subscribe & Connect */
+
+#main #connect {margin-top: 20px; background-color: #EEE; border: 1px solid #DDD; padding: 5px 10px; }
+#main #connect .col-left, #connect .col-right { width:48%; }
+#connect h3 { margin-bottom: 0; }
+#connect p { margin: 0 0 1em; }
+#connect .newsletter-form { margin: 0 0 1em; }
+#connect .newsletter-form .input {background:#f6f6f6;border-top:1px solid #bebebe;border-left:1px solid #bebebe;border-bottom:1px solid #f3f3f3;border-right:1px solid #f3f3f3;padding:5px;}
+#connect .newsletter-form .email {width:140px;background:#f6f6f6;border-top:1px solid #bebebe;border-left:1px solid #bebebe;border-bottom:1px solid #f3f3f3;border-right:1px solid #f3f3f3;padding:5px; }
+#connect .newsletter-form .submit {background:transparent url(images/btn-submit.png) no-repeat scroll left top;border:medium none;color:#FFFFFF;font-family:Georgia, "Times New Roman", Times, serif; font-size:11px; cursor:pointer !important;font-weight:bold;height:25px;text-transform:uppercase;width:80px;}
+#connect .social {}
+#connect .social a { opacity:0.8; }
+#connect .social a:hover { opacity:1; }
+#connect .related-posts { border-left:1px solid #e6e6e6; padding-left:15px; }
+#connect .related-posts ul { padding: 0; list-style: outside disc; margin:5px 0 5px 15px; }
+.widget #connect .fl, .widget #connect .fr { float: none; }
+
+/* Post Author */
+#post-author { margin-top: 20px; background-color: #EEE; border: 1px solid #DDD; padding: 10px; }
+#post-author .profile-image { float:left; margin:0 15px 0 0; padding: 5px; border: 1px solid #c2c5ca; background:#fff; }
+#post-author .profile-content {margin-left: 100px;}
+#post-author .profile-link {  }
+
 /* Misc */
 
 a.button {
@@ -311,7 +360,7 @@ div.hr { background:url(images/hr.png) repeat-x top left; height:1px; margin:15p
 /* Gravity forms */
 
 .gfield { margin-bottom: 10px; }
-.gform_wrapper .top_label .gfield_label { display:block;float:left; padding-right:20px; width: 100px; margin: 5px 0px 4px !important; }
+.gform_wrapper .top_label .gfield_label { display:block; padding-right:20px; width: 100px; margin: 5px 0px 4px !important; }
 .gform_wrapper input { padding: 7px 3px !important; }
 .gform_wrapper .top_label input.large, .gform_wrapper .top_label select.large, .gform_wrapper .top_label textarea.textarea { width: 350px !important; padding: 7px 3px !important; }
 .gform_wrapper .entry img, .gform_wrapper img.thumbnail { padding: 0px !important; border: 0px !important; }

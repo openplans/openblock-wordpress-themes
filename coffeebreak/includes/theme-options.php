@@ -7,9 +7,9 @@ function woo_global_options() {
 	$woo_options = get_option('woo_options');
 }
 
-add_action('admin_head','woo_options');  
+add_action( 'admin_head','woo_options' );  
 if (!function_exists('woo_options')) {
-function woo_options(){
+function woo_options() {
 // VARIABLES
 $themename = "Coffee Break";
 $manualurl = 'http://www.woothemes.com/support/theme-documentation/coffee-break/';
@@ -51,8 +51,8 @@ if ( is_dir($alt_stylesheet_path) ) {
 }
 
 //More Options
-$all_uploads_path = get_bloginfo('home') . '/wp-content/uploads/';
-$all_uploads = get_option('woo_uploads');
+
+
 $other_entries = array("Select a number:","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19");
 
 // THIS IS THE DIFFERENT FIELDS
@@ -125,6 +125,18 @@ $options[] = array( "name" => "Custom CSS",
                     "id" => $shortname."_custom_css",
                     "std" => "",
                     "type" => "textarea");
+                    
+$options[] = array( "name" => "Post Content",
+					"desc" => "Select if you want to show the full content or the excerpt on posts. ",
+					"id" => $shortname."_post_content",
+					"type" => "select2",
+					"options" => array( "excerpt" => "The Excerpt", "content" => "Full Content" ) );  
+
+$options[] = array( "name" => "Post Author Box",
+					"desc" => "This will enable the post author box on the single posts page. Edit description in <a href='".home_url()."/wp-admin/profile.php'>Profile</a>.",
+					"id" => $shortname."_post_author",
+					"std" => "true",
+					"type" => "checkbox" );                                                        
 
 $options[] = array(	"name" => "Featured Slider",
 					"icon" => "slider",
@@ -136,11 +148,18 @@ $options[] = array(	"name" => "Disable Featured Area",
 					"std" => "false",
 					"type" => "checkbox");
 
+$options[] = array( "name" => "Effect",
+					"desc" => "Select the animation effect. ",
+					"id" => $shortname."_slider_effect",
+					"type" => "select2",
+					"options" => array("slide" => "Slide", "fade" => "Fade") );     
+
 $options[] = array(    "name" => "Animation Speed",
                     "desc" => "The time in <b>seconds</b> the animation between frames will take.",
                     "id" => $shortname."_slider_speed",
                     "std" => 0.6,
-                    "type" => "text");
+					"type" => "select",
+					"options" => array( '0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '2.0' ) );
 
 $options[] = array(    "name" => "Auto Start",
                     "desc" => "Set the slider to start sliding automatically.",
@@ -151,8 +170,9 @@ $options[] = array(    "name" => "Auto Start",
 $options[] = array(    "name" => "Auto Slide Interval",
                     "desc" => "The time in <b>seconds</b> each slide pauses for, before sliding to the next.",
                     "id" => $shortname."_slider_interval",
-                    "std" => 4.0,
-                    "type" => "text"); 
+					"std" => "4",
+					"type" => "select",
+					"options" => array( '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ) );
 
 $options[] = array(    "name" => "Auto Height",
                     "desc" => "Set the slider to adjust height automatically.",
@@ -165,6 +185,12 @@ $options[] = array(    "name" => "Initial Height",
                     "id" => $shortname."_slider_height",
                     "std" => "320",
                     "type" => "text");   
+                    
+$options[] = array( "name" => "Hover Pause",
+                    "desc" => "Hovering over slideshow will pause it",
+                    "id" => $shortname."_slider_hover",
+                    "std" => "false",
+                    "type" => "checkbox");                     
 
 $options[] = array(	"name" => "Homepage",
 					"icon" => "homepage",
@@ -253,20 +279,115 @@ $options[] = array( "name" => "Destination URL",
 					"std" => "http://www.woothemes.com",
 					"type" => "text");    
 
-update_option('woo_template',$options);      
-update_option('woo_themename',$themename);   
-update_option('woo_shortname',$shortname);
-update_option('woo_manual',$manualurl);
+					
+
+/* Subscribe & Connect */
+$options[] = array( "name" => __( 'Subscribe & Connect', 'woothemes' ),
+					"type" => "heading",
+					"icon" => "connect" ); 
+
+$options[] = array( "name" => __( 'Enable Subscribe & Connect - Single Post', 'woothemes' ),
+					"desc" => sprintf( __( 'Enable the subscribe & connect area on single posts. You can also add this as a %1$s in your sidebar.', 'woothemes' ), '<a href="' . home_url() . '/wp-admin/widgets.php">widget</a>' ),
+					"id" => $shortname."_connect",
+					"std" => 'false',
+					"type" => "checkbox" ); 
+
+$options[] = array( "name" => __( 'Subscribe Title', 'woothemes' ),
+					"desc" => __( 'Enter the title to show in your subscribe & connect area.', 'woothemes' ),
+					"id" => $shortname."_connect_title",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'Text', 'woothemes' ),
+					"desc" => __( 'Change the default text in this area.', 'woothemes' ),
+					"id" => $shortname."_connect_content",
+					"std" => '',
+					"type" => "textarea" ); 
+
+$options[] = array( "name" => __( 'Subscribe By E-mail ID (Feedburner)', 'woothemes' ),
+					"desc" => __( 'Enter your <a href="http://www.google.com/support/feedburner/bin/answer.py?hl=en&answer=78982">Feedburner ID</a> for the e-mail subscription form.', 'woothemes' ),
+					"id" => $shortname."_connect_newsletter_id",
+					"std" => '',
+					"type" => "text" ); 					
+
+$options[] = array( "name" => __( 'Subscribe By E-mail to MailChimp', 'woothemes', 'woothemes' ),
+					"desc" => __( 'If you have a MailChimp account you can enter the <a href="http://woochimp.heroku.com" target="_blank">MailChimp List Subscribe URL</a> to allow your users to subscribe to a MailChimp List.', 'woothemes' ),
+					"id" => $shortname."_connect_mailchimp_list_url",
+					"std" => '',
+					"type" => "text"); 					
+
+$options[] = array( "name" => __( 'Enable RSS', 'woothemes' ),
+					"desc" => __( 'Enable the subscribe and RSS icon.', 'woothemes' ),
+					"id" => $shortname."_connect_rss",
+					"std" => 'true',
+					"type" => "checkbox" ); 
+
+$options[] = array( "name" => __( 'Twitter URL', 'woothemes' ),
+					"desc" => __( 'Enter your  <a href="http://www.twitter.com/">Twitter</a> URL e.g. http://www.twitter.com/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_twitter",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'Facebook URL', 'woothemes' ),
+					"desc" => __( 'Enter your  <a href="http://www.facebook.com/">Facebook</a> URL e.g. http://www.facebook.com/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_facebook",
+					"std" => '',
+					"type" => "text" ); 
+					
+$options[] = array( "name" => __( 'YouTube URL', 'woothemes' ),
+					"desc" => __( 'Enter your  <a href="http://www.youtube.com/">YouTube</a> URL e.g. http://www.youtube.com/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_youtube",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'Flickr URL', 'woothemes' ),
+					"desc" => __( 'Enter your  <a href="http://www.flickr.com/">Flickr</a> URL e.g. http://www.flickr.com/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_flickr",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'LinkedIn URL', 'woothemes' ),
+					"desc" => __( 'Enter your  <a href="http://www.www.linkedin.com.com/">LinkedIn</a> URL e.g. http://www.linkedin.com/in/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_linkedin",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'Delicious URL', 'woothemes' ),
+					"desc" => __( 'Enter your <a href="http://www.delicious.com/">Delicious</a> URL e.g. http://www.delicious.com/woothemes', 'woothemes' ),
+					"id" => $shortname."_connect_delicious",
+					"std" => '',
+					"type" => "text" ); 
+
+$options[] = array( "name" => __( 'Google+ URL', 'woothemes' ),
+					"desc" => __( 'Enter your <a href="http://plus.google.com/">Google+</a> URL e.g. https://plus.google.com/104560124403688998123/', 'woothemes' ),
+					"id" => $shortname."_connect_googleplus",
+					"std" => '',
+					"type" => "text" );
+
+$options[] = array( "name" => __( 'Enable Related Posts', 'woothemes' ),
+					"desc" => __( 'Enable related posts in the subscribe area. Uses posts with the same <strong>tags</strong> to find related posts. Note: Will not show in the Subscribe widget.', 'woothemes' ),
+					"id" => $shortname."_connect_related",
+					"std" => 'true',
+					"type" => "checkbox" );
+
+// Add extra options through function
+if ( function_exists("woo_options_add") )
+	$options = woo_options_add($options);
+
+if ( get_option('woo_template') != $options) update_option('woo_template',$options);      
+if ( get_option('woo_themename') != $themename) update_option('woo_themename',$themename);   
+if ( get_option('woo_shortname') != $shortname) update_option('woo_shortname',$shortname);
+if ( get_option('woo_manual') != $manualurl) update_option('woo_manual',$manualurl);
 
                                      
 // Add extra options through function
 if ( function_exists("woo_options_add") )
   $options = woo_options_add($options);                                              
 
-update_option('woo_template',$options);      
-update_option('woo_themename',$themename);   
-update_option('woo_shortname',$shortname);
-update_option('woo_manual',$manualurl);
+if ( get_option('woo_template') != $options) update_option('woo_template',$options);      
+if ( get_option('woo_themename') != $themename) update_option('woo_themename',$themename);   
+if ( get_option('woo_shortname') != $shortname) update_option('woo_shortname',$shortname);
+if ( get_option('woo_manual') != $manualurl) update_option('woo_manual',$manualurl);
 
                                      
 // Woo Metabox Options
@@ -323,7 +444,7 @@ if( get_post_type() == 'portfolio' || !get_post_type()){
 $woo_metaboxes['portfolio'] = array (	"name" => "portfolio",
 							"label" => "Portfolio Thumbnail",
 							"type" => "upload",
-							"desc" => "Upload an image for use in the portfolio (optimal size: 450x210)");
+							"desc" => "Upload an image for use in the portfolio (optimal size: 460x210)");
 
 $woo_metaboxes['portfolio-large'] = array (	"name" => "portfolio-large",
 							"label" => "Portfolio Large",
@@ -334,9 +455,9 @@ $woo_metaboxes['portfolio-large'] = array (	"name" => "portfolio-large",
 
 // Add extra metaboxes through function
 if ( function_exists("woo_metaboxes_add") )
-  $woo_metaboxes = woo_metaboxes_add($woo_metaboxes);
+	$woo_metaboxes = woo_metaboxes_add($woo_metaboxes);
     
-update_option('woo_custom_template',$woo_metaboxes);
+if ( get_option('woo_custom_template') != $woo_metaboxes) update_option('woo_custom_template',$woo_metaboxes);
 
 }
 }

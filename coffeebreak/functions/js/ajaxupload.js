@@ -27,7 +27,7 @@ function addEvent(el, type, fn){
 		var f = function(){
 		  fn.call(el, w.event);
 		};			
-		el.attachEvent('on' + type, f)
+		el.attachEvent( 'on' + type, f)
 	}
 }
 
@@ -36,7 +36,7 @@ function addEvent(el, type, fn){
  * Creates and returns element from html chunk
  */
 var toElement = function(){
-	var div = d.createElement('div');
+	var div = d.createElement( 'div' );
 	return function(html){
 		div.innerHTML = html;
 		var el = div.childNodes[0];
@@ -46,14 +46,14 @@ var toElement = function(){
 }();
 
 function hasClass(ele,cls){
-	return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+	return ele.className.match(new RegExp( '(\\s|^)'+cls+'(\\s|$)'));
 }
 function addClass(ele,cls) {
 	if (!hasClass(ele,cls)) ele.className += " "+cls;
 }
 function removeClass(ele,cls) {
-	var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-	ele.className=ele.className.replace(reg,' ');
+	var reg = new RegExp( '(\\s|^)'+cls+'(\\s|$)' );
+	ele.className=ele.className.replace(reg,' ' );
 }
 
 // getOffset function copied from jQuery lib (http://jquery.com/)
@@ -172,7 +172,7 @@ var getUID = function(){
 }();
 
 function fileFromPath(file){
-	return file.replace(/.*(\/|\\)/, "");			
+	return file.replace(/.*(\/|\\)/, "" );			
 }
 
 function getExt(file){
@@ -231,7 +231,7 @@ Ajax_upload = AjaxUpload = function(button, options){
 	this._parentDialog = d.body;
 		
 	if (window.jQuery && jQuery.ui && jQuery.ui.dialog){
-		var parentDialog = jQuery(this._button).parents('.ui-dialog');
+		var parentDialog = jQuery(this._button).parents( '.ui-dialog' );
 		if (parentDialog.length){
 			this._parentDialog = parentDialog[0];
 		}
@@ -300,9 +300,9 @@ AjaxUpload.prototype = {
 	 */
 	_createInput : function(){
 		var self = this;
-		var input = d.createElement("input");
-		input.setAttribute('type', 'file');
-		input.setAttribute('name', this._settings.name);
+		var input = d.createElement( "input" );
+		input.setAttribute( 'type', 'file' );
+		input.setAttribute( 'name', this._settings.name);
 		var styles = {
 			'position' : 'absolute'
 			,'margin': '-5px 0 0 -175px'
@@ -440,7 +440,7 @@ AjaxUpload.prototype = {
 		
 		// Remove ie6 "This page contains both secure and nonsecure items" prompt 
 		// http://tinyurl.com/77w9wh
-		var iframe = toElement('<iframe src="javascript:false;" name="' + id + '" />');
+		var iframe = toElement( '<iframe src="javascript:false;" name="' + id + '" />' );
 		iframe.id = id;
 		iframe.style.display = 'none';
 		d.body.appendChild(iframe);			
@@ -477,8 +477,8 @@ AjaxUpload.prototype = {
 			if (settings.closeConnection && /AppleWebKit|MSIE/.test(navigator.userAgent)){
 				var xhr = getXhr();
 				// Open synhronous connection
-				xhr.open('GET', settings.closeConnection, false);
-				xhr.send('');
+				xhr.open( 'GET', settings.closeConnection, false);
+				xhr.send( '' );
 			}
 			
 			form.submit();
@@ -546,7 +546,7 @@ AjaxUpload.prototype = {
 							response = doc.body.firstChild.firstChild.nodeValue;
 						}
 						if (response) {
-							response = window["eval"]("(" + response + ")");
+							response = window["eval"]( "( " + response + ")" );
 						} else {
 							response = {};
 						}
@@ -586,7 +586,7 @@ AjaxUpload.prototype = {
 		
 		// method, enctype must be specified here
 		// because changing this attr on the fly is not allowed in IE 6/7		
-		var form = toElement('<form method="post" enctype="multipart/form-data"></form>');
+		var form = toElement( '<form method="post" enctype="multipart/form-data"></form>' );
 		form.style.display = 'none';
 		form.action = settings.action;
 		form.target = iframe.name;
@@ -594,7 +594,7 @@ AjaxUpload.prototype = {
 		
 		// Create hidden input element for each data key
 		for (var prop in settings.data){
-			var el = d.createElement("input");
+			var el = d.createElement( "input" );
 			el.type = 'hidden';
 			el.name = prop;
 			el.value = settings.data[prop];

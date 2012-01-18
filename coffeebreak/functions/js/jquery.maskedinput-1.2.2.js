@@ -31,8 +31,8 @@
 					} else if (this.createTextRange) {
 						var range = this.createTextRange();
 						range.collapse(true);
-						range.moveEnd('character', end);
-						range.moveStart('character', begin);
+						range.moveEnd( 'character', end);
+						range.moveStart( 'character', begin);
 						range.select();
 					}
 				});
@@ -42,20 +42,20 @@
 					end = this[0].selectionEnd;
 				} else if (document.selection && document.selection.createRange) {
 					var range = document.selection.createRange();
-					begin = 0 - range.duplicate().moveStart('character', -100000);
+					begin = 0 - range.duplicate().moveStart( 'character', -100000);
 					end = begin + range.text.length;
 				}
 				return { begin: begin, end: end };
 			}
 		},
-		unmask: function() { return this.trigger("unmask"); },
+		unmask: function() { return this.trigger( "unmask" ); },
 		mask: function(mask, settings) {
 			if (!mask && this.length > 0) {
 				var input = $(this[0]);
-				var tests = input.data("tests");
-				return $.map(input.data("buffer"), function(c, i) {
+				var tests = input.data( "tests" );
+				return $.map(input.data( "buffer"), function(c, i) {
 					return tests[i] ? c : null;
-				}).join('');
+				}).join( '' );
 			}
 			settings = $.extend({
 				placeholder: "_",
@@ -68,7 +68,7 @@
 			var firstNonMaskPos = null;
 			var len = mask.length;
 
-			$.each(mask.split(""), function(i, c) {
+			$.each(mask.split( ""), function(i, c) {
 				if (c == '?') {
 					len--;
 					partialPosition = i;
@@ -83,11 +83,11 @@
 
 			return this.each(function() {
 				var input = $(this);
-				var buffer = $.map(mask.split(""), function(c, i) { if (c != '?') return defs[c] ? settings.placeholder : c });
+				var buffer = $.map(mask.split( ""), function(c, i) { if (c != '?') return defs[c] ? settings.placeholder : c });
 				var ignore = false;  			//Variable for ignoring control keys
 				var focusText = input.val();
 
-				input.data("buffer", buffer).data("tests", tests);
+				input.data( "buffer", buffer).data( "tests", tests);
 
 				function seekNext(pos) {
 					while (++pos <= len && !tests[pos]);
@@ -181,7 +181,7 @@
 					}
 				};
 
-				function writeBuffer() { return input.val(buffer.join('')).val(); };
+				function writeBuffer() { return input.val(buffer.join( '')).val(); };
 
 				function checkVal(allow) {
 					//try to place characters where they belong
@@ -206,7 +206,7 @@
 						} 
 					}
 					if (!allow && lastMatch + 1 < partialPosition) {
-						input.val("");
+						input.val( "" );
 						clearBuffer(0, len);
 					} else if (allow || lastMatch + 1 >= partialPosition) {
 						writeBuffer();
@@ -215,15 +215,15 @@
 					return (partialPosition ? i : firstNonMaskPos);
 				};
 
-				if (!input.attr("readonly"))
+				if (!input.attr( "readonly"))
 					input
-					.one("unmask", function() {
+					.one( "unmask", function() {
 						input
-							.unbind(".mask")
-							.removeData("buffer")
-							.removeData("tests");
+							.unbind( ".mask")
+							.removeData( "buffer")
+							.removeData( "tests" );
 					})
-					.bind("focus.mask", function() {
+					.bind( "focus.mask", function() {
 						focusText = input.val();
 						var pos = checkVal();
 						writeBuffer();
@@ -234,13 +234,13 @@
 								input.caret(pos);
 						}, 0);
 					})
-					.bind("blur.mask", function() {
+					.bind( "blur.mask", function() {
 						checkVal();
 						if (input.val() != focusText)
 							input.change();
 					})
-					.bind("keydown.mask", keydownEvent)
-					.bind("keypress.mask", keypressEvent)
+					.bind( "keydown.mask", keydownEvent)
+					.bind( "keypress.mask", keypressEvent)
 					.bind(pasteEventName, function() {
 						setTimeout(function() { input.caret(checkVal(true)); }, 0);
 					});

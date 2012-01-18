@@ -19,7 +19,7 @@ Template Name: Sitemap
                                                                                    
                 <div class="archives post wrap">
                     
-                    <h3><?php _e('Pages',woothemes); ?></h3>
+                    <h3><?php _e('Pages', 'woothemes' ); ?></h3>
         
                     <ul>
                         <?php wp_list_pages('depth=1&sort_column=menu_order&title_li=' ); ?>		
@@ -29,7 +29,7 @@ Template Name: Sitemap
                 
                 <div class="page post wrap">
             
-                    <h3><?php _e('Categories',woothemes); ?></h3>
+                    <h3><?php _e('Categories', 'woothemes' ); ?></h3>
         
                     <ul>
                         <?php wp_list_categories('title_li=&hierarchical=0&show_count=1') ?>	

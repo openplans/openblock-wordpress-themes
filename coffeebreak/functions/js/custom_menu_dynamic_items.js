@@ -1,11 +1,11 @@
 function removeitem(o) 
 {
 	   		
-	var todelete = document.getElementById('menu-' + o);
+	var todelete = document.getElementById( 'menu-' + o);
 	
 	if (todelete)
 	{		
-		var parenttodelete = document.getElementById('menu-' + o).parentNode;
+		var parenttodelete = document.getElementById( 'menu-' + o).parentNode;
         throwaway_node = parenttodelete.removeChild(todelete); 
 	}	
 			
@@ -15,21 +15,21 @@ function removeitem(o)
 function edititem(o) 
 {
 	   		
-		itemTitle = jQuery('#title' + o).attr('value');
-		itemURL = jQuery('#linkurl' + o).attr('value');
-		itemAnchorTitle = jQuery('#anchortitle' + o).attr('value');
-		itemNewWindow = jQuery('#newwindow' + o).attr('value');
-		itemDesc = jQuery('#description' + o).attr('value');
+		itemTitle = jQuery( '#title' + o).attr( 'value' );
+		itemURL = jQuery( '#linkurl' + o).attr( 'value' );
+		itemAnchorTitle = jQuery( '#anchortitle' + o).attr( 'value' );
+		itemNewWindow = jQuery( '#newwindow' + o).attr( 'value' );
+		itemDesc = jQuery( '#description' + o).attr( 'value' );
 		
-		jQuery('#dialog-confirm').dialog( 'option' , 'itemID' , o )
+		jQuery( '#dialog-confirm').dialog( 'option' , 'itemID' , o )
 				
-		jQuery('#dialog-confirm').dialog('open');
+		jQuery( '#dialog-confirm').dialog( 'open' );
 		
-		jQuery('#edittitle').attr('value', itemTitle);
-		jQuery('#editlink').attr('value', itemURL);
-		jQuery('#editanchortitle').attr('value', itemAnchorTitle);
-		jQuery("#editnewwindow option[value='" + itemNewWindow  + "']").attr('selected', 'selected');
-		jQuery('#editdescription').attr('value', itemDesc);
+		jQuery( '#edittitle').attr( 'value', itemTitle);
+		jQuery( '#editlink').attr( 'value', itemURL);
+		jQuery( '#editanchortitle').attr( 'value', itemAnchorTitle);
+		jQuery( "#editnewwindow option[value='" + itemNewWindow  + "']").attr( 'selected', 'selected' );
+		jQuery( '#editdescription').attr( 'value', itemDesc);
 	
 };
 
@@ -37,24 +37,24 @@ function updatepostdata()
 {	       	
 	
 	var i = 0;
-	 jQuery("#custom-nav").find("li").each(function(i) {
+	 jQuery( "#custom-nav").find( "li").each(function(i) {
 		i = i + 1;
-     	var j = jQuery(this).attr('value');
+     	var j = jQuery(this).attr( 'value' );
 		
-     	jQuery(this).find('#position' + j).attr('value', i);
-     	jQuery(this).attr('id','menu-' + i);
-     	jQuery(this).attr('value', i);
+     	jQuery(this).find( '#position' + j).attr( 'value', i);
+     	jQuery(this).attr( 'id','menu-' + i);
+     	jQuery(this).attr( 'value', i);
      	
-     	jQuery(this).find('#dbid' + j).attr('name','dbid' + i);
-     	jQuery(this).find('#dbid' + j).attr('id','dbid' + i);
+     	jQuery(this).find( '#dbid' + j).attr( 'name','dbid' + i);
+     	jQuery(this).find( '#dbid' + j).attr( 'id','dbid' + i);
      	
-		jQuery(this).find('#postmenu' + j).attr('name','postmenu' + i);
-     	jQuery(this).find('#postmenu' + j).attr('id','postmenu' + i);
+		jQuery(this).find( '#postmenu' + j).attr( 'name','postmenu' + i);
+     	jQuery(this).find( '#postmenu' + j).attr( 'id','postmenu' + i);
      	
-     	var p = jQuery(this).find('#parent' + j).parent().parent().parent().attr('value');
+     	var p = jQuery(this).find( '#parent' + j).parent().parent().parent().attr( 'value' );
      	
-     	jQuery(this).find('#parent' + j).attr('name','parent' + i);
-     	jQuery(this).find('#parent' + j).attr('id','parent' + i);
+     	jQuery(this).find( '#parent' + j).attr( 'name','parent' + i);
+     	jQuery(this).find( '#parent' + j).attr( 'id','parent' + i);
      	if (p) {
      		//Do nothing
      	}
@@ -63,38 +63,38 @@ function updatepostdata()
      		p = 0;
      	}
      	     	
-     	jQuery(this).find('#parent' + j).attr('value', p);
+     	jQuery(this).find( '#parent' + j).attr( 'value', p);
      	     	
-     	jQuery(this).find('#title' + j).attr('name','title' + i);
-     	jQuery(this).find('#title' + j).attr('id','title' + i);
+     	jQuery(this).find( '#title' + j).attr( 'name','title' + i);
+     	jQuery(this).find( '#title' + j).attr( 'id','title' + i);
      	
-     	jQuery(this).find('#linkurl' + j).attr('name','linkurl' + i);
-     	jQuery(this).find('#linkurl' + j).attr('id','linkurl' + i);
+     	jQuery(this).find( '#linkurl' + j).attr( 'name','linkurl' + i);
+     	jQuery(this).find( '#linkurl' + j).attr( 'id','linkurl' + i);
      		
-     	jQuery(this).find('#description' + j).attr('name','description' + i);
-     	jQuery(this).find('#description' + j).attr('id','description' + i);
+     	jQuery(this).find( '#description' + j).attr( 'name','description' + i);
+     	jQuery(this).find( '#description' + j).attr( 'id','description' + i);
      	
-     	jQuery(this).find('#icon' + j).attr('name','icon' + i);
-     	jQuery(this).find('#icon' + j).attr('id','icon' + i);
+     	jQuery(this).find( '#icon' + j).attr( 'name','icon' + i);
+     	jQuery(this).find( '#icon' + j).attr( 'id','icon' + i);
      	
-     	jQuery(this).find('#position' + j).attr('name','position' + i);
-     	jQuery(this).find('#position' + j).attr('id','position' + i);
+     	jQuery(this).find( '#position' + j).attr( 'name','position' + i);
+     	jQuery(this).find( '#position' + j).attr( 'id','position' + i);
      	
-     	jQuery(this).find('#linktype' + j).attr('name','linktype' + i);
-     	jQuery(this).find('#linktype' + j).attr('id','linktype' + i);
+     	jQuery(this).find( '#linktype' + j).attr( 'name','linktype' + i);
+     	jQuery(this).find( '#linktype' + j).attr( 'id','linktype' + i);
      	
-     	jQuery(this).find('#anchortitle' + j).attr('name','anchortitle' + i);
-     	jQuery(this).find('#anchortitle' + j).attr('id','anchortitle' + i);
+     	jQuery(this).find( '#anchortitle' + j).attr( 'name','anchortitle' + i);
+     	jQuery(this).find( '#anchortitle' + j).attr( 'id','anchortitle' + i);
      	
-     	jQuery(this).find('#newwindow' + j).attr('name','newwindow' + i);
-     	jQuery(this).find('#newwindow' + j).attr('id','newwindow' + i);
+     	jQuery(this).find( '#newwindow' + j).attr( 'name','newwindow' + i);
+     	jQuery(this).find( '#newwindow' + j).attr( 'id','newwindow' + i);
      	
-     	jQuery(this).find('dl > dt > span > #remove' + j).attr('value', i);
-     	jQuery(this).find('dl > dt > span > #remove' + j).attr('onClick', 'removeitem(' + i + ')');
-     	jQuery(this).find('dl > dt > span > #remove' + j).attr('id','remove' + i);
+     	jQuery(this).find( 'dl > dt > span > #remove' + j).attr( 'value', i);
+     	jQuery(this).find( 'dl > dt > span > #remove' + j).attr( 'onClick', 'removeitem( ' + i + ')' );
+     	jQuery(this).find( 'dl > dt > span > #remove' + j).attr( 'id','remove' + i);
 
      	
-     	jQuery('#licount').attr('value',i);
+     	jQuery( '#licount').attr( 'value',i);
 
    });
    
@@ -120,7 +120,7 @@ function get_html_translation_table (table, quote_style) {
     // %          note: dependencies to php.js, meaning the constants are not
     // %          note: real constants, but strings instead. Integers are also supported if someone
     // %          note: chooses to create the constants themselves.
-    // *     example 1: get_html_translation_table('HTML_SPECIALCHARS');
+    // *     example 1: get_html_translation_table( 'HTML_SPECIALCHARS' );
     // *     returns 1: {'"': '&quot;', '&': '&amp;', '<': '&lt;', '>': '&gt;'}
     
     var entities = {}, hash_map = {}, decimal = 0, symbol = '';
@@ -138,7 +138,7 @@ function get_html_translation_table (table, quote_style) {
     useQuoteStyle = !isNaN(quote_style) ? constMappingQuoteStyle[quote_style] : quote_style ? quote_style.toUpperCase() : 'ENT_COMPAT';
 
     if (useTable !== 'HTML_SPECIALCHARS' && useTable !== 'HTML_ENTITIES') {
-        throw new Error("Table: "+useTable+' not supported');
+        throw new Error( "Table: "+useTable+' not supported' );
         // return false;
     }
 
@@ -273,15 +273,15 @@ function htmlentities (string, quote_style) {
     // +    bugfixed by: Brett Zamir (http://brett-zamir.me)
     // +      input by: Ratheous
     // -    depends on: get_html_translation_table
-    // *     example 1: htmlentities('Kevin & van Zonneveld');
+    // *     example 1: htmlentities( 'Kevin & van Zonneveld' );
     // *     returns 1: 'Kevin &amp; van Zonneveld'
-    // *     example 2: htmlentities("foo'bar","ENT_QUOTES");
+    // *     example 2: htmlentities( "foo'bar","ENT_QUOTES" );
     // *     returns 2: 'foo&#039;bar'
 
     var hash_map = {}, symbol = '', tmp_str = '', entity = '';
     tmp_str = string.toString();
     
-    if (false === (hash_map = this.get_html_translation_table('HTML_ENTITIES', quote_style))) {
+    if (false === (hash_map = this.get_html_translation_table( 'HTML_ENTITIES', quote_style))) {
         return false;
     }
     hash_map["'"] = '&#039;';
@@ -307,11 +307,11 @@ function htmlspecialchars (string, quote_style, charset, double_encode) {
     // +      input by: felix
     // +    bugfixed by: Brett Zamir (http://brett-zamir.me)
     // %        note 1: charset argument not supported
-    // *     example 1: htmlspecialchars("<a href='test'>Test</a>", 'ENT_QUOTES');
+    // *     example 1: htmlspecialchars( "<a href='test'>Test</a>", 'ENT_QUOTES' );
     // *     returns 1: '&lt;a href=&#039;test&#039;&gt;Test&lt;/a&gt;'
-    // *     example 2: htmlspecialchars("ab\"c'd", ['ENT_NOQUOTES', 'ENT_QUOTES']);
+    // *     example 2: htmlspecialchars( "ab\"c'd", ['ENT_NOQUOTES', 'ENT_QUOTES']);
     // *     returns 2: 'ab"c&#039;d'
-    // *     example 3: htmlspecialchars("my "&entity;" is still here", null, null, false);
+    // *     example 3: htmlspecialchars( "my "&entity;" is still here", null, null, false);
     // *     returns 3: 'my &quot;&entity;&quot; is still here'
 
     var optTemp = 0, i = 0, noquotes= false;
@@ -320,9 +320,9 @@ function htmlspecialchars (string, quote_style, charset, double_encode) {
     }
     string = string.toString();
     if (double_encode !== false) { // Put this first to avoid double-encoding
-        string = string.replace(/&/g, '&amp;');
+        string = string.replace(/&/g, '&amp;' );
     }
-    string = string.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    string = string.replace(/</g, '&lt;').replace(/>/g, '&gt;' );
 
     var OPTS = {
         'ENT_NOQUOTES': 0,
@@ -349,10 +349,10 @@ function htmlspecialchars (string, quote_style, charset, double_encode) {
         quote_style = optTemp;
     }
     if (quote_style & OPTS.ENT_HTML_QUOTE_SINGLE) {
-        string = string.replace(/'/g, '&#039;');
+        string = string.replace(/'/g, '&#039;' );
     }
     if (!noquotes) {
-        string = string.replace(/"/g, '&quot;');
+        string = string.replace(/"/g, '&quot;' );
     }
 
     return string;
@@ -369,31 +369,31 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 
 	if (additemtype == 'Custom') 
 	{
-		inputvaluevarname = htmlspecialchars(document.getElementById('custom_menu_item_name').value, 'ENT_QUOTES');
-		inputvaluevarurl = htmlspecialchars(document.getElementById('custom_menu_item_url').value, 'ENT_QUOTES');
+		inputvaluevarname = htmlspecialchars(document.getElementById( 'custom_menu_item_name').value, 'ENT_QUOTES' );
+		inputvaluevarurl = htmlspecialchars(document.getElementById( 'custom_menu_item_url').value, 'ENT_QUOTES' );
 		inputitemid = '';
 		inputparentid = '';
 		inputlinktype = 'custom';
-		inputdescription = htmlspecialchars(document.getElementById('custom_menu_item_description').value, 'ENT_QUOTES');
+		inputdescription = htmlspecialchars(document.getElementById( 'custom_menu_item_description').value, 'ENT_QUOTES' );
 	}
 	else if (additemtype == 'Page')
 	{
-		inputvaluevarname = htmlspecialchars(itemtext.toString(), 'ENT_QUOTES');
+		inputvaluevarname = htmlspecialchars(itemtext.toString(), 'ENT_QUOTES' );
 		inputvaluevarurl = itemurl.toString();
 		inputitemid = itemid.toString();
 		inputparentid = '0';
 		inputlinktype = 'page';
-		inputdescription = htmlspecialchars(itemdescription.toString(), 'ENT_QUOTES');
+		inputdescription = htmlspecialchars(itemdescription.toString(), 'ENT_QUOTES' );
 		
 	}
 	else if (additemtype == 'Category')
 	{
-		inputvaluevarname = htmlspecialchars(itemtext.toString(), 'ENT_QUOTES');
+		inputvaluevarname = htmlspecialchars(itemtext.toString(), 'ENT_QUOTES' );
 		inputvaluevarurl = itemurl.toString();
 		inputitemid = itemid.toString();
 		inputparentid = '0';
 		inputlinktype = 'category';
-		inputdescription = htmlspecialchars(itemdescription.toString(), 'ENT_QUOTES');
+		inputdescription = htmlspecialchars(itemdescription.toString(), 'ENT_QUOTES' );
 	}
 	else 
 	{
@@ -407,7 +407,7 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 
 	
 	
-	var count=document.getElementById('custom-nav').getElementsByTagName('li').length;
+	var count=document.getElementById( 'custom-nav').getElementsByTagName( 'li').length;
 
 	var randomnumber = count;
 
@@ -415,7 +415,7 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 
 	try 
 	{
-		var test=document.getElementById("menu-" + randomnumber.toString()).value;
+		var test=document.getElementById( "menu-" + randomnumber.toString()).value;
 	}
 	catch (err) 
 	{
@@ -428,7 +428,7 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 
 		try 
 		{
-			var test2=document.getElementById("menu-" + randomnumber.toString()).value;
+			var test2=document.getElementById( "menu-" + randomnumber.toString()).value;
 		}
 		catch (err) 
 		{
@@ -436,12 +436,12 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 		}
 	}
 	
-	jQuery('.maintitle').after('<div id="message" class="updated fade below-h2"><p>Menu Item added!</p></div>');
-	jQuery('#message').animate({ opacity: 1.0 },2000).fadeOut(300, function(){ jQuery(this).remove();});
+	jQuery( '.maintitle').after( '<div id="message" class="updated fade below-h2"><p>Menu Item added!</p></div>' );
+	jQuery( '#message').animate({ opacity: 1.0 },2000).fadeOut(300, function(){ jQuery(this).remove();});
 	
-	jQuery('#custom-nav').append('<li id="menu-' + randomnumber + '" value="' + randomnumber + '"><div class="dropzone ui-droppable"></div><dl class="ui-droppable"><dt><span class="title">' + inputvaluevarname + '</span><span class="controls"><span class="type">' + additemtype + '</span><a id="edit' + randomnumber + '" onclick="edititem(' + randomnumber + ')" value="' + randomnumber +'"><img class="edit" alt="Edit Menu Item" title="Edit Menu Item" src="' + templatedir + '/functions/images/ico-edit.png" /></a> <a id="remove' + randomnumber + '" onclick="removeitem(' + randomnumber + ')" value="' + randomnumber +'"><img class="remove" alt="Remove from Custom Menu" title="Remove from Custom Menu" src="' + templatedir + '/functions/images/ico-close.png" /></a> <a href="' + inputvaluevarurl + '" target="_blank"><img alt="View Custom Link" title="View Custom Link" src="' + templatedir + '/functions/images/ico-viewpage.png" /></a></span></dt></dl><a class="hide" href="' + inputvaluevarurl + '">' + inputvaluevarname + '</a><input type="hidden" name="postmenu' + randomnumber + '" id="postmenu' + randomnumber + '" value="' + inputitemid + '" /><input type="hidden" name="parent' + randomnumber + '" id="parent' + randomnumber + '" value="' + inputparentid + '" /><input type="hidden" name="title' + randomnumber + '" id="title' + randomnumber + '" value="' + inputvaluevarname + '" /><input type="hidden" name="linkurl' + randomnumber + '" id="linkurl' + randomnumber + '" value="' + inputvaluevarurl + '" /><input type="hidden" name="description' + randomnumber + '" id="description' + randomnumber + '" value="' + inputdescription + '" /><input type="hidden" name="icon' + randomnumber + '" id="icon' + randomnumber + '" value="' + inputicon + '" /><input type="hidden" name="position' + randomnumber + '" id="position' + randomnumber + '" value="' + randomnumber + '" /><input type="hidden" name="linktype' + randomnumber + '" id="linktype' + randomnumber + '" value="' + inputlinktype + '" /><input type="hidden" name="anchortitle' + randomnumber + '" id="anchortitle' + randomnumber + '" value="' + inputvaluevarname + '" /><input type="hidden" name="newwindow' + randomnumber + '" id="newwindow' + randomnumber + '" value="0" /></li>');
+	jQuery( '#custom-nav').append( '<li id="menu-' + randomnumber + '" value="' + randomnumber + '"><div class="dropzone ui-droppable"></div><dl class="ui-droppable"><dt><span class="title">' + inputvaluevarname + '</span><span class="controls"><span class="type">' + additemtype + '</span><a id="edit' + randomnumber + '" onclick="edititem( ' + randomnumber + ')" value="' + randomnumber +'"><img class="edit" alt="Edit Menu Item" title="Edit Menu Item" src="' + templatedir + '/functions/images/ico-edit.png" /></a> <a id="remove' + randomnumber + '" onclick="removeitem( ' + randomnumber + ')" value="' + randomnumber +'"><img class="remove" alt="Remove from Custom Menu" title="Remove from Custom Menu" src="' + templatedir + '/functions/images/ico-close.png" /></a> <a href="' + inputvaluevarurl + '" target="_blank"><img alt="View Custom Link" title="View Custom Link" src="' + templatedir + '/functions/images/ico-viewpage.png" /></a></span></dt></dl><a class="hide" href="' + inputvaluevarurl + '">' + inputvaluevarname + '</a><input type="hidden" name="postmenu' + randomnumber + '" id="postmenu' + randomnumber + '" value="' + inputitemid + '" /><input type="hidden" name="parent' + randomnumber + '" id="parent' + randomnumber + '" value="' + inputparentid + '" /><input type="hidden" name="title' + randomnumber + '" id="title' + randomnumber + '" value="' + inputvaluevarname + '" /><input type="hidden" name="linkurl' + randomnumber + '" id="linkurl' + randomnumber + '" value="' + inputvaluevarurl + '" /><input type="hidden" name="description' + randomnumber + '" id="description' + randomnumber + '" value="' + inputdescription + '" /><input type="hidden" name="icon' + randomnumber + '" id="icon' + randomnumber + '" value="' + inputicon + '" /><input type="hidden" name="position' + randomnumber + '" id="position' + randomnumber + '" value="' + randomnumber + '" /><input type="hidden" name="linktype' + randomnumber + '" id="linktype' + randomnumber + '" value="' + inputlinktype + '" /><input type="hidden" name="anchortitle' + randomnumber + '" id="anchortitle' + randomnumber + '" value="' + inputvaluevarname + '" /><input type="hidden" name="newwindow' + randomnumber + '" id="newwindow' + randomnumber + '" value="0" /></li>' );
 
-	jQuery('#menu-' + randomnumber + '').draggable(
+	jQuery( '#menu-' + randomnumber + '').draggable(
 	{
 		handle: ' > dl',
 		opacity: .8,
@@ -450,61 +450,61 @@ function appendToList(templatedir,additemtype,itemtext,itemurl,itemid,itemparent
 		zIndex: 100
 	});
 
-	jQuery('#menu-' + randomnumber + ' dl, #menu-' + randomnumber + ' .dropzone').droppable({
+	jQuery( '#menu-' + randomnumber + ' dl, #menu-' + randomnumber + ' .dropzone').droppable({
 		accept: '#' + randomnumber + ', #custom-nav li',
 		tolerance: 'pointer',
 		drop: function(e, ui) 
 		{
 			var li = jQuery(this).parent();
-			var child = !jQuery(this).hasClass('dropzone');
+			var child = !jQuery(this).hasClass( 'dropzone' );
 			//Append UL to first child
-			if (child && li.children('ul').length == 0) 
+			if (child && li.children( 'ul').length == 0) 
 			{
-				li.append('<ul/>');
+				li.append( '<ul/>' );
 			}
 			//Make it draggable
 			if (child) 
 			{
-				li.children('ul').append(ui.draggable);
+				li.children( 'ul').append(ui.draggable);
 			}
 			else 
 			{
 				li.before(ui.draggable);
 			}
 			
-			li.find('dl,.dropzone').css({ backgroundColor: '', borderColor: '' });	
+			li.find( 'dl,.dropzone').css({ backgroundColor: '', borderColor: '' });	
 			
-			var draggablevalue = ui.draggable.attr('value');
-	       	var droppablevalue = li.attr('value');
-	       	li.find('#menu-' + draggablevalue).find('#parent' + draggablevalue).val(droppablevalue); 
-	        jQuery(this).parent().find("dt").removeAttr('style');
-	        jQuery(this).parent().find("div:first").removeAttr('style');
+			var draggablevalue = ui.draggable.attr( 'value' );
+	       	var droppablevalue = li.attr( 'value' );
+	       	li.find( '#menu-' + draggablevalue).find( '#parent' + draggablevalue).val(droppablevalue); 
+	        jQuery(this).parent().find( "dt").removeAttr( 'style' );
+	        jQuery(this).parent().find( "div:first").removeAttr( 'style' );
 	        
 		},
 		over: function() 
 	    	{
 	    		//Add child
-	    		if (jQuery(this).attr('class') == 'dropzone ui-droppable') 
+	    		if (jQuery(this).attr( 'class') == 'dropzone ui-droppable') 
 	    		{
-	    			jQuery(this).parent().find("div:first").css('background', 'none').css('height', '50px');
+	    			jQuery(this).parent().find( "div:first").css( 'background', 'none').css( 'height', '50px' );
 	    		}
 	    		//Add above
-	    		else if (jQuery(this).attr('class') == 'ui-droppable') 
+	    		else if (jQuery(this).attr( 'class') == 'ui-droppable') 
 	    		{
-	    			jQuery(this).parent().find("dt:first").css('background', '#d8d8d8');
+	    			jQuery(this).parent().find( "dt:first").css( 'background', '#d8d8d8' );
 	    		}
 	    		//do nothing
 	    		else {
 	    		
 	    		}
-	    		var parentid = jQuery(this).parent().attr('id');
+	    		var parentid = jQuery(this).parent().attr( 'id' );
 		        
 	       	},
 	    	out: function() 
 	    	{
-	        	jQuery(this).parent().find("dt").removeAttr('style');
-	        	jQuery(this).parent().find("div:first").removeAttr('style');
-	        	jQuery(this).filter('.dropzone').css({ borderColor: '' });
+	        	jQuery(this).parent().find( "dt").removeAttr( 'style' );
+	        	jQuery(this).parent().find( "div:first").removeAttr( 'style' );
+	        	jQuery(this).filter( '.dropzone').css({ borderColor: '' });
 	    	}
 	});
 

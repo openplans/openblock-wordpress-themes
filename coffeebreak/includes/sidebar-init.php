@@ -8,8 +8,6 @@ function the_widgets_init() {
 
     register_sidebar(array('name' => 'Sidebar','id' => 'sidebar', 'before_widget' => '<div id="%1$s" class="block widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
     
-    register_sidebar(array('name' => 'Homepage Main Area','id' => 'homepage', 'before_widget' => '<div id="%1$s" class="block widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>'));
-    
 }
 
 add_action( 'init', 'the_widgets_init' );

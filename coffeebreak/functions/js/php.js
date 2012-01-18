@@ -16,7 +16,7 @@ function get_html_translation_table (table, quote_style) {
     // %          note: dependencies to php.js, meaning the constants are not
     // %          note: real constants, but strings instead. Integers are also supported if someone
     // %          note: chooses to create the constants themselves.
-    // *     example 1: get_html_translation_table('HTML_SPECIALCHARS');
+    // *     example 1: get_html_translation_table( 'HTML_SPECIALCHARS' );
     // *     returns 1: {'"': '&quot;', '&': '&amp;', '<': '&lt;', '>': '&gt;'}
     
     var entities = {}, hash_map = {}, decimal = 0, symbol = '';
@@ -34,7 +34,7 @@ function get_html_translation_table (table, quote_style) {
     useQuoteStyle = !isNaN(quote_style) ? constMappingQuoteStyle[quote_style] : quote_style ? quote_style.toUpperCase() : 'ENT_COMPAT';
 
     if (useTable !== 'HTML_SPECIALCHARS' && useTable !== 'HTML_ENTITIES') {
-        throw new Error("Table: "+useTable+' not supported');
+        throw new Error( "Table: "+useTable+' not supported' );
         // return false;
     }
 
@@ -169,15 +169,15 @@ function htmlentities (string, quote_style) {
     // +    bugfixed by: Brett Zamir (http://brett-zamir.me)
     // +      input by: Ratheous
     // -    depends on: get_html_translation_table
-    // *     example 1: htmlentities('Kevin & van Zonneveld');
+    // *     example 1: htmlentities( 'Kevin & van Zonneveld' );
     // *     returns 1: 'Kevin &amp; van Zonneveld'
-    // *     example 2: htmlentities("foo'bar","ENT_QUOTES");
+    // *     example 2: htmlentities( "foo'bar","ENT_QUOTES" );
     // *     returns 2: 'foo&#039;bar'
 
     var hash_map = {}, symbol = '', tmp_str = '', entity = '';
     tmp_str = string.toString();
     
-    if (false === (hash_map = this.get_html_translation_table('HTML_ENTITIES', quote_style))) {
+    if (false === (hash_map = this.get_html_translation_table( 'HTML_ENTITIES', quote_style))) {
         return false;
     }
     hash_map["'"] = '&#039;';

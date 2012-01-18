@@ -40,10 +40,6 @@ width: 100%; }
 -moz-border-radius-topleft:3px;
 -moz-border-radius-topright:3px; background-color: #c5f0bf; border: 1px solid #2b931d; display: block; padding-left: 10px; padding-top: 8px; padding-bottom: 8px; font-weight: bold;  }
 
-#content_ifr {
-height: 128px !important;
-}
-
 #content-fields  { margin: 0 0 10px 0; }
 
 #image_upload_button, #audio_upload_button {

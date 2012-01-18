@@ -17,7 +17,7 @@ function custom_comment($comment, $args, $depth) {
     </div>
     <div class="comment-entry"  id="comment-<?php comment_ID(); ?>">
         <?php comment_text() ?>
-        <?php if ($comment->comment_approved == '0') echo "<p class='unapproved'>".__('Your comment is awaiting moderation.',woothemes)."</p>\n"; ?>
+        <?php if ($comment->comment_approved == '0') echo "<p class='unapproved'>".__('Your comment is awaiting moderation.', 'woothemes' )."</p>\n"; ?>
         <div class="reply">
             <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
         </div>

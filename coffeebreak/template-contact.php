@@ -15,7 +15,7 @@ if(isset($_POST['submitted'])) {
 	
 		//Check to make sure that the name field is not empty
 		if(trim($_POST['contactName']) === '') {
-			$nameError =  __('You forgot to enter your name.', woothemes); 
+			$nameError =  __('You forgot to enter your name.', 'woothemes' ); 
 			$hasError = true;
 		} else {
 			$name = trim($_POST['contactName']);
@@ -23,10 +23,10 @@ if(isset($_POST['submitted'])) {
 		
 		//Check to make sure sure that a valid email address is submitted
 		if(trim($_POST['email']) === '')  {
-			$emailError = __('You forgot to enter your email address.', woothemes);
+			$emailError = __('You forgot to enter your email address.', 'woothemes' );
 			$hasError = true;
 		} else if (!eregi("^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$", trim($_POST['email']))) {
-			$emailError = __('You entered an invalid email address.', woothemes);
+			$emailError = __('You entered an invalid email address.', 'woothemes' );
 			$hasError = true;
 		} else {
 			$email = trim($_POST['email']);
@@ -34,7 +34,7 @@ if(isset($_POST['submitted'])) {
 			
 		//Check to make sure comments were entered	
 		if(trim($_POST['comments']) === '') {
-			$commentError = __('You forgot to enter your comments.', woothemes);
+			$commentError = __('You forgot to enter your comments.', 'woothemes' );
 			$hasError = true;
 		} else {
 			if(function_exists('stripslashes')) {
@@ -51,7 +51,7 @@ if(isset($_POST['submitted'])) {
 			$subject = 'Contact Form Submission from '.$name;
 			$sendCopy = trim($_POST['sendCopy']);
 			$body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
-			$headers = __('From: ', woothemes) .' <'.$emailTo.'>' . "\r\n" . __('Reply-To: ',woothemes) . $email;
+			$headers = __('From: ', 'woothemes' ) .' <'.$emailTo.'>' . "\r\n" . __('Reply-To: ', 'woothemes' ) . $email;
 			
 			wp_mail($emailTo, $subject, $body, $headers);
 
@@ -121,8 +121,8 @@ jQuery(document).ready(function() {
 		<?php if(isset($emailSent) && $emailSent == true) { ?>
         
             <div class="thanks">
-                <h1><?php _e('Thanks', woothemes); ?>, <?php echo $name;?></h1>
-                <p><?php _e('Your email was successfully sent.', woothemes); ?></p>
+                <h1><?php _e('Thanks', 'woothemes' ); ?>, <?php echo $name;?></h1>
+                <p><?php _e('Your email was successfully sent.', 'woothemes' ); ?></p>
             </div>
         
         <?php } else { ?>
@@ -136,40 +136,40 @@ jQuery(document).ready(function() {
                 </div>
                 </div>
                 <?php if(isset($hasError) || isset($captchaError) ) { ?>
-                    <p class="error"><?php _e('There was an error submitting the form.', woothemes); ?><p>
+                    <p class="error"><?php _e('There was an error submitting the form.', 'woothemes' ); ?><p>
                 <?php } ?>
                 
                 <?php if ( get_option('woo_contactform_email') == '' ) { ?>
-                    <p class="error"><?php _e('E-mail has not been setup properly. Please add your contact e-mail!', woothemes); ?><p>
+                    <p class="error"><?php _e('E-mail has not been setup properly. Please add your contact e-mail!', 'woothemes' ); ?><p>
                 <?php } ?>
                 
             
                 <form action="<?php the_permalink(); ?>" id="contactForm" method="post">
             
                     <ol class="forms">
-                        <li><label for="contactName"><?php _e('Name', woothemes); ?></label>
+                        <li><label for="contactName"><?php _e('Name', 'woothemes' ); ?></label>
                             <input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="requiredField" />
                             <?php if($nameError != '') { ?>
                                 <span class="error"><?php echo $nameError;?></span> 
                             <?php } ?>
                         </li>
                         
-                        <li><label for="email"><?php _e('Email', woothemes); ?></label>
+                        <li><label for="email"><?php _e('Email', 'woothemes' ); ?></label>
                             <input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email" />
                             <?php if($emailError != '') { ?>
                                 <span class="error"><?php echo $emailError;?></span>
                             <?php } ?>
                         </li>
                         
-                        <li class="textarea"><label for="commentsText"><?php _e('Message', woothemes); ?></label>
+                        <li class="textarea"><label for="commentsText"><?php _e('Message', 'woothemes' ); ?></label>
                             <textarea name="comments" id="commentsText" rows="20" cols="30" class="requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
                             <?php if($commentError != '') { ?>
                                 <span class="error"><?php echo $commentError;?></span> 
                             <?php } ?>
                         </li>
-                        <li class="inline"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy"><?php _e('Send a copy of this email to yourself', woothemes); ?></label></li>
+                        <li class="inline"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy"><?php _e('Send a copy of this email to yourself', 'woothemes' ); ?></label></li>
                         <li class="screenReader"><label for="checking" class="screenReader">If you want to submit this form, do not enter anything in this field</label><input type="text" name="checking" id="checking" class="screenReader" value="<?php if(isset($_POST['checking']))  echo $_POST['checking'];?>" /></li>
-                        <li class="buttons"><input type="hidden" name="submitted" id="submitted" value="true" /><input class="submit" type="submit" value="<?php _e('Submit', woothemes); ?>" /></li>
+                        <li class="buttons"><input type="hidden" name="submitted" id="submitted" value="true" /><input class="submit" type="submit" value="<?php _e('Submit', 'woothemes' ); ?>" /></li>
                     </ol>
                 </form>
             
