@@ -11,7 +11,11 @@ $widgets = array(
 				'includes/widgets/widget-woo-news.php', 
 				'includes/widgets/widget-woo-search.php', 
 				'includes/widgets/widget-woo-twitter.php',
-				'includes/widgets/widget-woo-subscribe.php'
+				'includes/widgets/widget-woo-subscribe.php',
+// HACKED IN WIDGETS because I don't know how to write plugins
+// ... unfortunately this does not seem to work.
+                                'includes/widget-woo-openblock-news.php',
+                                'includes/widget-openblock-signup-form.php'
 				);
 
 // Allow child themes/plugins to add widgets to be loaded.
