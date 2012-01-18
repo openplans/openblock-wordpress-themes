@@ -1691,7 +1691,7 @@ function woo_meta(){
 
 			if ( is_category() && get_option( 'seo_woo_meta_indexing_category') != 'true' ) { $index = 'noindex'; }
 			elseif ( is_tag() && get_option( 'seo_woo_meta_indexing_tag') != 'true') { $index = 'noindex'; }
-			elseif ( is_post_type_archive() && get_option( 'seo_woo_meta_indexing_posttype') != 'true' ) { $index = 'noindex'; }
+			elseif (function_exists('is_post_type_archive') &&  is_post_type_archive() && get_option( 'seo_woo_meta_indexing_posttype') != 'true' ) { $index = 'noindex'; }
 			elseif ( is_tax() && get_option( 'seo_woo_meta_indexing_taxonomy') != 'true' ) { $index = 'noindex'; }
 			elseif ( is_search() && get_option( 'seo_woo_meta_indexing_search') != 'true' ) { $index = 'noindex'; }
 			elseif ( is_author() && get_option( 'seo_woo_meta_indexing_author') != 'true') { $index = 'noindex'; }
