@@ -1,2 +1,4 @@
 twentyten
 *.tar
+coffeebreak/cache/*
+*.zip
